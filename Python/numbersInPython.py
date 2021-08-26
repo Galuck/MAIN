@@ -23,3 +23,5 @@ from math import *  #importa uma biblioteca de operações matemáticas
 
 print(floor(3.7))#vai printar o menor número {arredonda pra baixo?}
 print(ceil(3.7))#vai arredondar pra cima de qualquer jeito
+
+print(sqrt(36))#raiz quadrada
