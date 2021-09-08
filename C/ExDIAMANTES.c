@@ -6,7 +6,7 @@
 #include <stdio_ext.h>
 
 
-int main()//ignore a pilha
+int main()//ignore a pilha pls
 {
   int diamante=0;
   char mina[1000];
