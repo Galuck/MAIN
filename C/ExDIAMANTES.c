@@ -5,7 +5,7 @@
 #include <string.h>
 
 
-int main()//ignore a pilha pls
+int main()
 {
   int diamante=0;
   char mina[1000];
