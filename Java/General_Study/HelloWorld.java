@@ -4,7 +4,7 @@ package intro_algoritmos;
  * @author Gabriel May
  *
  */
-public class AulaDankiCode00 {	// just a simple hello world in Java
+public class HelloWorld {	// just a simple hello world in Java
 
 	
 	public static void main(String[] args) {

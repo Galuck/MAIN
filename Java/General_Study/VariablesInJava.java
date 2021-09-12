@@ -7,7 +7,7 @@ package intro_algoritmos;
  * @author Gabriel May
  *
  */
-public class AulaDankiCode00 {
+public class VariablesInJava {
 
 	
 	public static void main(String[] args) {
