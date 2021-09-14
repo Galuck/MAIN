@@ -6,3 +6,4 @@ coordenadas =(4,5)  #tuples são imutáveis, não tem como mudar uma tuple depoi
 #é, é isso
 
 listaDeCoordenadas=[(4,6), (8,9), (10,129)]# pode fazer também listas com essa tuples
+print(listaDeCoordenadas[0][0])
