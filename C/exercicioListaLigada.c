@@ -34,13 +34,15 @@
     node *newNode = malloc(sizeof(node));
     newNode->value =value;
     newNode->next=NULL;
+    newNode->anterior=NULL;
   
     return newNode;
   }
 
   node *addNode_to_Head(node *head, node *addedNode){
     addedNode->next=head;
-    return addedNode;
+    addedNode->anterior=NULL;
+    return addedNode;//vira a nova cabeça
   }
 
   void addNode_after_otherNode(node *nodeToInsertAfter, node *newNode){
@@ -75,7 +77,7 @@ int main(void) {
     head = addNode_to_Head(head, temp);
   }
   
-  temp = find_Node(head, 50);
+  temp = find_Node(head, 50); //variavel vai receber valor do 
   printf("\nValor encontrado: %d\n",temp->value);
 
   addNode_after_otherNode(temp, criarNode(69));// vai add após o node temp (que agora é 50)
