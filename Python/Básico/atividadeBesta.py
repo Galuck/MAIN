@@ -1,6 +1,3 @@
-##Altura da trajetória da bala é dada pela função  H(x)= ax^2 + bx + c
-# x é a quantidade de tempo após o tiro.
-# ler a b c de
 
 
 
@@ -16,7 +13,7 @@ areaPrisma= ((b1+b2)*alturaTrapezio)/2
 
 print("A área do prisma é", str(areaPrisma))
 
-alturaPrisma = float(input("Digite a altura H do PRISMA do prisma trapezoidal: \n"))
+alturaPrisma = float(input("Digite a altura H do PRISMA do prisma trapezoidal: \n")) #exercício 2
 
 volume = alturaPrisma*areaPrisma
 
@@ -28,12 +25,14 @@ print("O volume do prisma é", str(volume))
 
 
 
-
+##Altura da trajetória da bala é dada pela função  H(x)= ax^2 + bx + c
+# x é a quantidade de tempo após o tiro.
+# ler a b c de
 
 a = float(input("Digite um valor para A: \n"))
 b = float(input("Digite um valor para B: \n"))
 c = float(input("Digite um valor para C: \n"))
-tempoTiro= int(input("Digite quantos segundos o tiro levou para acertar o alvo: \n"))
+tempoTiro= int(input("Digite quantos segundos o tiro levou para acertar o alvo: \n")) #exercício 1
 x=0
 h=0
 alturaMaxima = 0
