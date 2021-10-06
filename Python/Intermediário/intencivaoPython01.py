@@ -3,8 +3,6 @@ import pyperclip
 
 import time
 
-import pandas as pd
-
 import sys 
 
 
