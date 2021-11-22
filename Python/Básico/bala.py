@@ -1,5 +1,6 @@
 
-
+f(x) = float (4) ** 0.5
+print (f(x))
 ##Altura da trajetória da bala é dada pela função  H(x)= ax^2 + bx + c
 # x é a quantidade de tempo após o tiro.
 # ler a b c de
@@ -25,6 +26,5 @@ for x in range(tempoTiro+1):#for é uma repetição do código que estiver dentr
 
 print ("A altura máxima ocorre no tempo", xMaximo, " na altura", alturaMaxima)#PS: a bala vai subir para sempre por causa da função original
 #ou seja, o tempo máximo sempre vai ser o tempo digitado por causa disso
-
 
 
