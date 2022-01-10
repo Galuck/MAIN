@@ -22,7 +22,7 @@ public class Player extends Rectangle{//rectangle pode manipular vetores e detec
 	
 	
 	public Player (int x, int y) {
-		super(x,y, 32, 32);
+		super(x,y, 40, 50);
 	}
 
 	public void tick() {
@@ -34,14 +34,15 @@ public class Player extends Rectangle{//rectangle pode manipular vetores e detec
 			moved =true;
 			dir=1;
 		}
-		else if(up && World.isFree(x, y-spd)) {
-			y-=spd;
-			moved =true;
-		}
+	
 		else if(left && World.isFree(x-spd, y)) {
 			x-=spd;
 			moved =true;
 			dir=-1;
+		}
+		if(up && World.isFree(x, y-spd)) {
+			y-=spd;
+			moved =true;
 		}
 		else if(down && World.isFree(x, y+spd)) { //por algum motivo, tá invertido 
 			y+=spd;
