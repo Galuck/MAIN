@@ -1,6 +1,5 @@
 
-f(x) = float (4) ** 0.5
-print (f(x))
+
 ##Altura da trajetória da bala é dada pela função  H(x)= ax^2 + bx + c
 # x é a quantidade de tempo após o tiro.
 # ler a b c de
