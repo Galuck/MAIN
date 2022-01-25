@@ -32,3 +32,4 @@ print("\n")
 
 for index in range(len(friends)):#len= lenght
     print(index)#vai printar de 0 a 4
+    print(friends[index])
