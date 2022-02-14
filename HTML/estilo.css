@@ -1,12 +1,18 @@
 #titulo { 
     color:blue ;
+    /*0 0 0 é preto, 255 255 255 é branco, RGB, Red Green Blue */
+    background-color:rgba(0,0,0);
     font-size:15px;
-}
+} 
 a{
     color:purple ;
+    background-color: #301b30;
 }
 img{
-    width: 200px;
+    width: 400px;
+    border: 5px solid blue;
+    border-radius: 100px;
+    overflow: hidden;
 }
 
 li{
@@ -28,4 +34,22 @@ li{
 
 ol li {
     color: yellowgreen ;
+}
+
+/*BORDAS*/
+/*largura, tipo de borda, cor da borda*/
+/*solid, dotted, dashed, double, groove*/
+p{
+    border: 5px solid #00F;
+    border-radius: 5px;
+    /*border: 5px solid #00F;   dá pra usar border left, right, top, bottom*/
+
+}
+
+div{
+    background-color: green;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    border:3px solid black;
 }
