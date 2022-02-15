@@ -1,78 +1,108 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Listas e Tabelas</title>
+        <link rel="stylesheet" href="algunsCSS/estiloListas.css"/>
+    </head>
 
-</head>
+    <body>
+        <h1>Teste de Listas</h1>
 
-<body>
-    <h1>Teste de Listas</h1>
+        <!--tabela-->
+        <table width="400" border ="0">
+            <thead><!--não tem nada visual, facilita pro navegador-->
+                <tr>
+                    <th>Item 1</th>
+                    <th>Item 2</th>
+                    <th>Item 3</th>
+                </tr>
+            </thead>
+            <!--funciona como uma matriz em C, linhas e coluna etc-->
+            <!--tr são as linhas-->
 
-    <!--tabela-->
-    <table width="400" border="1">
-        <!--funciona como uma matriz em C, linhas e coluna etc-->
-        <!--tr são as linhas-->
-        <tr>
-            <td>...</td>
+            <tbody>
+                <tr>
+                    <td>...</td>
+        
+                    <td>...</td>
+                </tr>
+        
+                <tr>
+                    <td>...</td>
+        
+                    <td>...</td>
+                </tr>
+        
+                <tr>
+                    <td>...</td>
+        
+                    <td>...</td>
+                </tr>
 
-            <td>...</td>
-        </tr>
+                <tr>
+                    <td>...</td>
+        
+                    <td>...</td>
+                </tr>
 
-        <tr>
-            <td>...</td>
+                <tr>
+                    <td>...</td>
+        
+                    <td>...</td>
+                </tr>
 
-            <td>...</td>
-        </tr>
-
-        <tr>
-            <td>...</td>
-
-            <td>...</td>
-        </tr>
-    </table>
-
-
-
+                <tr>
+                    <td>...</td>
+        
+                    <td>...</td>
+                </tr>
+            </tbody>
+        </table>
 
 
 
-    <!--tipos:  disc, square, circle, none-->
-    <ul style="list-style-type:disc">
-        <li>Café</li>
-        <li>Leite</li>
-        <li>Nescau</li>
-    </ul>
 
-    <!--A, a , I, i-->
-    <ol type="I">
-        <li>Café</li>
-        <li>Leite</li>
-        <li>Nescau</li>
-    </ol>
 
-    <ol start="69">
-        <li>Café</li>
-        <li>Leite</li>
-        <li>Nescau</li>
-    </ol>
 
-    <ul>
-        <li>Café</li>
-        <li>Leite
-            <ul><!--lista dentro de lista-->
-                <li>Desnatado
-                    <ul>
-                        <li>Piracanjuba</li>
-                        <li>Leite Bom</li>
-                    </ul>
-                </li>
-                <li>Semidesnatado</li>
-                <li>Integral</li>
-            </ul>
-        </li>
-        <li>Nescau</li>
-    </ul>
-</body>
+        <!--tipos:  disc, square, circle, none-->
+        <ul style="list-style-type:disc">
+            <li>Café</li>
+            <li>Leite</li>
+            <li>Nescau</li>
+        </ul>
+
+        <!--A, a , I, i-->
+        <ol type="I">
+            <li>Café</li>
+            <li>Leite</li>
+            <li>Nescau</li>
+        </ol>
+
+        <ol start="69">
+            <li>Café</li>
+            <li>Leite</li>
+            <li>Nescau</li>
+        </ol>
+
+        <ul>
+            <li>Café</li>
+            <li>Leite
+                <ul><!--lista dentro de lista-->
+                    <li>Desnatado
+                        <ul>
+                            <li>Piracanjuba</li>
+                            <li>Leite Bom</li>
+                        </ul>
+                    </li>
+                    <li>Semidesnatado</li>
+                    <li>Integral</li>
+                </ul>
+            </li>
+            <li>Nescau</li>
+        </ul>
+    </body>
 
 
 </html>

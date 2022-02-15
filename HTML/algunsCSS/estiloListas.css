@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin:50px;
+    font-size: 17px;
+}
+
+h1{
+    font-family: Comic Sans MS, sans-serif;
+}
+
+table{
+    width: 600px;
+    /*border-collapse: collapse;*/
+}
+
+
+/*Fazendo assim, cada elemento fica com a sua própria borda*/
+th , td{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+
+table thead{
+    background-color: purple;
+    font-weight: normal;
+}
+
+table tbody{
+    background-color:darkgrey;
+}
+
+tbody tr:hover{
+    background-color:grey;
+}
+
+tbody td{
+    border-bottom: 1px solid black ;
+}
+
+thead tr:hover{
+    background-color: pink;
+}
+/*só lembrando, tr é linha e td é coluna*/
+tbody tr:nth-child(even){
+    background-color: #EEE;
+}
