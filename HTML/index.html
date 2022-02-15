@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<!--legend é uma legenda basicamente-->
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Página</title>
+        <link rel="stylesheet" href="algunsCSS/estiloFieldset.css">
+    </head>
+
+    <body>
+        <form method="POST">
+
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+                <label>
+                    Primeiro Nome: <br/>
+                    <input type="text" name="name" required minlenght="2"/>
+                </label><br/>
+
+                <label>
+                    Sobrenome:<br/>
+                    <input type="text" name="lastname" required minlenght="2"/>
+                </label><br/>
+
+                <label>
+                    Idade:<br/>
+                    <input type="number" name="age" required step="1" min="18" max="120"/>
+                </label><br/>
+
+                <label>
+                    E-mail:<br/>
+                    <input type="text" name="email" required pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9.]+$)" title="endereço de e-mail"/>
+                </label><br/>
+
+                <label>
+                    Data de Nascimento:<br/>
+                    <input type="text" name="birthdate" required />
+                </label><br/>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Dados Profissionais</legend>
+                <label>
+                    Nome da Empresa:<br/>
+                    <input type="text" name="companyname" required/>
+                </label><br/>
+    
+                <label>
+                    Cargo na Empresa:<br/>
+                    <input type="text" name="companyjobtitle" required/>
+                </label><br/>
+            </fieldset>
+
+            <input type="submit"  value="Cadastrar"/>
+
+            
+
+
+        </form>
+
+    </body>
+
+
+</html>
