@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin:100px;
+}
+
+p{
+    /*color: #0000FF;*/
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    /*family troca a fonte*/
+    font-family:Comic Sans MS, Verdana, Arial; /*vírgula para caso a fonte nõa tenha no OS*/
+    
+    /*Fonte externa precisa de "aspas"*/
+
+    /*usado quando o usuário não tem a fonte no computador*/
+    font-family: "Redressed";
+
+    /*alinhar*/
+    text-align: justify;
+    /*text-align: left; left é o padrão*/
+
+
+    text-transform: uppercase; /*deixar o texto em caixa alta*/
+    text-transform: lowercase;
+
+    letter-spacing: 1px;
+    word-spacing: 4px;
+
+    /*espaçamento da linha*/
+    line-height: 25px;
+
+    /*posições da sombra, mesma coisa no sony vegas,  x; y; esfumaçado; e cor*/
+    text-shadow: 0px 2px 3px black;
+
+}
+
+a{
+    /*tira a decoração do texto(no caso, o underline do link*/
+    text-decoration: none;
+    /*text-decoration: overline;*/
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
