@@ -1,0 +1,62 @@
+/*dica width height
+
+*{
+ aplica para todas as tags e etc
+}
+
+*/ 
+*{
+    /*box-sizing: content-box;/*é a largura do conteúdo*/
+    box-sizing:border-box; /*o conteúdo inclui a borda e o padding*/
+}
+
+
+/*<!--padding é o espaçamento interno do elemento-->*/
+.exemplo{
+    border: 1px solid #00FF00;
+    padding:10px;
+
+
+    background-color:grey;
+    /*width:100%;*/
+    width:auto;
+    height:100px;
+
+
+
+
+    /*cria uma margem da borda*/
+    margin: 10px;
+    margin-right: 600px;
+
+    padding: 10px 20px 10px 20px;
+    /*cima, direita, baixo, esquerda*/
+}
+
+body{
+    margin: 0px
+}
+
+img{
+    /*define a largura automaticamente pelo tamanho da imagem*/
+    width: auto;
+    /*inherit vai herdar a largura do item anterior*/
+    /*dá pra usar em centímetros e pixels também*/
+
+    max-width: 450px;
+    min-width: 200px;
+}
+
+.link{
+    color: red;
+    font-size: 30px;  
+}
+/*mouse no elemento*/
+.link:hover{
+    color: darkred;
+}
+
+/*link já foi acessado*/
+.link:visited{
+    color:black;
+}
