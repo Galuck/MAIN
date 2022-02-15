@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Página de Login</title>
+        <link rel="stylesheet" href="algunsCSS/estiloFormularios.css"/>
+
+    </head>
+
+    <body>
+        <!--sempre que precisar de um input do usuário, tem que usar um formulários-->
+        <h1>Formulários</h1>
+
+
+        <h2>Área de cadastro</h2>
+        <!--tem que criar grupos para os formulários, como Login-->
+        <!--aqui já entra o GET e o POST(médoto de envio)-->
+        <form action="paginas/LOGIN.html" method="GET" target="_blank"><!--quando o formulário for enviado, as informações vão ser enviados para esse endereço-->
+
+            <label>
+                Descrição:<br/>
+                <textarea name="descricao"></textarea>
+            </label>
+
+            <!--action é o local que vão ser enviadas as informações-->
+            <!--tudo dentro desse form vai fazer parte do grupo-->
+
+            <!--para onde vão essas informações e qual o tipo de envio-->
+
+            <!--input-->                        <!--value é p valor padrão-->
+            <label for="user">Usuario:</label>
+            <input type="text" name="usuario" value="Gabriel May" id="user"/>
+            <br/>
+
+            <label>E-mail: <input type="email" value="email@gmail.com"/></label><!--só funciona em HTML5--><!--HTML5-->
+            <!--fazendo o label assim, dá pra clicar no texto-->
+
+
+            <br/>
+            <input type="date" name="data"/><!--HTML5-->
+            <input type="password" value="password"/>
+            <br/>
+            <input type="checkbox"/>
+            <br/>
+            <input type="radio" name="sexo"/>
+            <input type="radio" name="sexo"/>
+            <br/>
+            <input type="radio" name="mes"/>
+            <br/>
+            <input type="color" name="cor" /><!--HTML5-->
+            <br/>
+            <input type="datetime-local"/><!--HTML5-->
+            <br/>
+            <input type="month"/><!--HTML5-->
+            <input type="number" value="69"/><!--HTML5-->
+            <br/>
+            <input type="search" value="search"/><!--HTML5-->
+            <br/>
+            <input type="tel" value="tel"/><!--HTML5-->
+            <input type="time"/><!--HTML5-->
+            <input type="file:///C:/Users/gabri/OneDrive/Documents/GitHub/MAIN/HTML/formulariosHTML.html" value="urlpaginas/LOGIN.html"/><!--HTML5-->
+            <input type="week"/><!--HTML5-->
+            <br/>
+            <input type="submit" value="Fazer Cadastro"/><!--value aqui muda o texto do botão-->
+            <!--submit ativa o envio e vai para a outra página-->
+            <br/>
+            <label>
+                <input type="checkbox"/>
+                Eu declaro que li e aceitos os <a href="https://www.youtube.com/watch?v=aD31rEtjmCI&list=RDaD31rEtjmCI&start_radio=1" target="_blank" class="termosLink">termos de uso</a>
+            </label>
+                Categoria:<br/>
+                <select name="categoria">
+                    <option value="1">Categoria 1</option>
+                    <option value="2">Categoria 2</option>
+                    <option value="3">Categoria 3</option>
+                    <option value="4">Categoria 4</option>
+                    <option value="5">Categoria 5</option>
+                </select>
+            
+            <label>
+
+            </label>
+
+            <select name="opcoes" size="5" multiple>
+                <!--select o user clica e o site mostra as opções disponíveis-->
+                <option>Mais Vendidos</option>
+                <!--se n botar selected, vai mostrar o primeiro-->
+                <option selected>Recentes</option>
+                <option>Populares</option>
+
+                <!--com value, você pode escolher o valor que o usuário vai mandar 
+                sem mudar o texto que vai aparecer para ele, útil para linguas diferentes-->
+                <option value="last">Xablau</option>
+                <option value="sun">Sol</option>
+                <option value="moon">Lua</option>
+            </select>
+
+            <!--text area é basicamente um grande campo de texto-->
+            <textarea name="description" style="width:200px; height:200px"></textarea>
+
+
+            <!--não é tão usado pois depende muito do navegador-->
+            <textarea name="description" rows="10" cols="40"></textarea>
+
+            <button>Texto do próprio botão, FUNCIONA SUBMIT</button>
+
+        </form>
+
+        
+        <h2>Área de login</h2>
+        
+        <form>
+            
+        </form>
+
+
+    </body>
+
+
+</html>
