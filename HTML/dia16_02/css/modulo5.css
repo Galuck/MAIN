@@ -1,10 +1,59 @@
+:root{
+    --bg-color: darkgray;
+    --bg-colorDark:black;
+    --font-branco: #FFF;
+    --font-size: 35px;
+    
+
+    /*sempre bom meter as variáveis aqui no root pra poder aplicar pra tudo que quiser*/
+
+}
+
+
+
+
+
+
 body{
+
     margin: 0;/*ff= vermelho, ff=verde, ff=azul  */
     /* 0=nada da tonalidade  F=tudo da tonalidade*/
-    background-color: #FFFFFF ;
-    font-size:40px;
+    background-color: var(--bg-colorDark) ;
+    font-size: var(--font-size) ;
     height:600px;
     font-family: 'Courier New', Courier, monospace;
+}
+
+table{
+    background-color: var(--bg-branco);
+}
+
+@media (max-width: 600px) {/*funciona quase como se fosse um if*/
+    body{
+        background-color: #FFFFFF
+    }
+    h1{
+        font-size: 15px;
+    }
+}
+/*"ALL" aplica para todas as condições*/
+/*existe também o ONLY SCREEN, que é para só aparecer na tela(fazer o contrário)*/
+@media only print{/*só aparece quando vai imprimir*/
+    h1{
+        font-size:69px;
+        font-weight: normal;
+    }
+
+    table, td{
+        border: 0;
+    }
+}
+
+@media (min-width: 750px) and (max-width:999px){/*funciona quase como se fosse um if*/
+    body{
+        background-color: var(--bg-color);
+        display: flex;
+    }
 }
 
 h1{
@@ -12,6 +61,7 @@ h1{
 }
 
 .box{
+
     font-size: 2em;
     background-color: #999;
     /*width:50%;/*50% do espaço disponível que ele tem*/
@@ -33,3 +83,68 @@ h1{
     width: 15ch;/*para fontes monospace, cria um espaço para uma quantidade específica de characteres*/
 }
 
+img{
+    width:400px; 
+    height:height;
+    object-fit: contain;
+    /*fill/cover/contain/none/scale-down: cover corta a imagem*/
+
+}
+
+
+/*landscape(horizontal)/portrait(vertical)*/
+/*""if orientation== landscape""*/
+@media (orientation: landscape) {
+    body{
+        flex-direction: row;
+    }
+}
+
+/* no celular por exemplo, quando voce muda de modo retrato para paisagem, o site tende a mudar de formato também */
+@media (orientation: portrait) {
+    body{
+        flex-direction: column;
+    }
+}
+
+@media(aspect-ratio: 1/1){
+    
+    body{
+        --vermei:red;               /* usar outra cor após a vírgula caso não tenha a outra cor*/
+        background-color:var(--vermei, blue);
+    }
+}
+
+@media (min-aspect-ratio: 2/1){
+    body{
+        background-color:orange;
+    }
+}
+
+@media (max-aspect-ratio: 2/1){
+    body{
+        background-color:purple;
+    }
+}
+
+@media (max-width: 650px){
+    :root{
+        --font-size:20px
+    }
+}
+
+
+.video{
+    width:600px;
+}
+
+.video-area{
+    position:relative;
+    height: 0;
+    background-color: #CCC;
+    padding: 0px 0px 50%;
+}
+
+.video-area iframe{
+
+}
