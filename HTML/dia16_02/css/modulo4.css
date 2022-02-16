@@ -1,0 +1,18 @@
+body{
+    font-size:20px;
+}
+
+h1{
+    font-size: 3em;
+}
+
+.box{
+    font-size: 2em;
+}
+
+.box-interno{
+/*o 'em' vai mulltiplicando para cada 'em' acima dele*/
+    width: 10em;/*'em' é baseado no font-size do item PAI (no caso 20px)*/
+    height: 10rem;/*existe também o 'rem'(r vem de root, então só multiplica pela raiz)*/
+    background-color: #999;
+}
