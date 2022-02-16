@@ -1,0 +1,28 @@
+fieldset{
+    background-color: gray;
+    margin-bottom: 20px;
+    border: 6px solid purple;
+}
+
+legend{
+    background-color: darkmagenta;
+    font-weight: bold;
+    padding: 5px;
+}
+
+body{
+    margin:0;
+}
+
+.container{
+    width: calc(100% - 20px);
+    height: 200px;
+    background-color: #CCC;
+    font-size: 24px;
+    border: 3px solid purple;
+    color: red;/*Herança, tudo dentro da classe vai herdar a cor*/
+}
+
+.container strong{
+    color:blue;
+}

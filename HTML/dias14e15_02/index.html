@@ -6,10 +6,26 @@
         <meta charset="UTF-8" />
         <title>Página</title>
         <link rel="stylesheet" href="algunsCSS/estiloFieldset.css">
+        
+        <style type="text/css">
+            .container{
+                color: #00FF00;
+            }
+        </style>
+    
     </head>
 
-    <body>
-        <form method="POST">
+    <body>                      <!--multipart pois vai adicionar um arquivo-->
+        <form method="POST" enctype="multipart/form-data">
+
+            <!--fica escondido pro usuário, mas ele está ali (útil pra id)-->
+            <input type="hidden" name="country" value="BR"/>
+
+            <h1>Título do Site</h1>
+            <div class="container" style="color: #0000FF">
+                Este é um <strong>texto</strong> qualquer
+            </div>
+
 
             <fieldset>
                 <legend>Dados Pessoais</legend>
@@ -37,6 +53,13 @@
                     Data de Nascimento:<br/>
                     <input type="text" name="birthdate" required />
                 </label><br/>
+
+                <label>
+                    Foto:<br/>
+                    <input type="file" name="photo" required />
+                </label><br/>
+
+
 
             </fieldset>
 
