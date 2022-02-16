@@ -1,0 +1,35 @@
+body{
+    margin: 0;/*ff= vermelho, ff=verde, ff=azul  */
+    /* 0=nada da tonalidade  F=tudo da tonalidade*/
+    background-color: #FFFFFF ;
+    font-size:40px;
+    height:600px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1{
+    font-size: 3em;
+}
+
+.box{
+    font-size: 2em;
+    background-color: #999;
+    /*width:50%;/*50% do espaço disponível que ele tem*/
+    height: 100vh;/*viewport mostra exatamente o tamanho disponível pro usuário visualizar*/
+    width: 100vw; /*agora a largura do tamanho da tela*/
+    /*height: 50vmin;    isso aqui é melhor pro celular  */
+}
+
+.box h1{
+    font-size: inherit;
+}
+
+.box-interno{
+/*o 'em' vai mulltiplicando para cada 'em' acima dele*/
+    width: 10em;/*'em' é baseado no font-size do item PAI (no caso 20px)*/
+    height: 10rem;/*existe também o 'rem'(r vem de root, então só multiplica pela raiz)*/
+    background-color: #333;
+    color: #fff;
+    width: 15ch;/*para fontes monospace, cria um espaço para uma quantidade específica de characteres*/
+}
+
