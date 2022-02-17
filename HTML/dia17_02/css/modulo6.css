@@ -14,3 +14,49 @@ footer{
 video{
     margin: 0;
 }
+
+.exemplo{
+    /*background-color: red;*/
+    width: 500px;
+    height: 200px;
+    background: blue;
+    background:linear-gradient(60deg, white, blue, red);
+    /*
+    background:-moz-linear-gradient(white, blue, red);/*mozilla*/
+/*  background:-o-linear-gradient(white, blue, red);/*opera*/
+/*  background:-webkit-linear-gradient(white, blue, red);/*safari*/
+
+    box-shadow: 10px 10px 6px black;/*x,y, blur*/
+    transition: all 1s linear;/*all para qualquer tipo de propriedade*/
+}
+
+.exemplo:hover{
+    width: 700px;
+}
+
+
+@keyframes animacao{
+    0% {background-color:red; top: 0; left: 0;}/*inicio da animação, frame zero*/
+    25%{background-color: yellow; top: 0; left: 200;}
+    50%{background-color:black; top: 200; left: 200;}
+    75%{background-color:burlywood; top: 200; left: 0;}
+    100%{background-color:gray; top: 0; left: 0;}
+}
+
+
+.animacao{/*minha animação não funcionou aqui, mas eu decidi prosseguir pra não perder tempo*/
+    width:150px;
+    height:150px;
+    background-color:white;
+    /*position:absolute;*/
+    animation-name:animacao;
+    animation-duration: 4s;
+    animation-delay:1s;
+    animation-iteration-count: infinite;
+    
+    
+}
+
+q{
+    color:grey;
+}
