@@ -7,6 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/template.css"/>
     
+    <script type="text/javascript" src="">
+        window.onload =function(){
+            document.querySelector(".menuMobile").addEventListener("click",function(){
+                if(document.querySelector(".menu nav ul").style.display == "flex"){
+                    document.querySelector(".menu nav ul").style.display = "none";
+                }else{
+                    document.querySelector(".menu nav ul").style.display = "flex";
+                }
+            });
+        };
+    </script>
+
+
 </head>
 
 
@@ -26,13 +39,18 @@
 
         <div class="menu">
             <nav>
+                <div class="menuMobile">
+                    <div class="mm_line"></div>
+                    <div class="mm_line"></div>
+                    <div class="mm_line"></div>
+                </div>
                 <ul>
                     <li class="active"><a href="">HOME</a></li>
-                    <li><a href="">HOME</a></li>
-                    <li><a href="">HOME</a></li>
-                    <li><a href="">HOME</a></li>
-                    <li><a href="">HOME</a></li>
-                    <li><a href="">HOME</a></li>
+                    <li><a href="">FAQ</a></li>
+                    <li><a href="">ACCOUNT</a></li>
+                    <li><a href="">GAME</a></li>
+                    <li><a href="">TRAILER</a></li>
+                    <li><a href="">DEVS</a></li>
                 </ul>
             </nav>
         </div>
@@ -47,6 +65,9 @@
             <div class="banner_headline">
                 <h1>Frase Principal</h1>
                 <h3>Frase secundária</h3>
+                <video width="720" height="420" autoplay controls loop preload muted><!--autoplay tbm-->
+                    <source src="C:\Users\gabri\OneDrive\Documents\GitHub\videoTeste.mp4" type="video/mp4"/>
+                </video>
             </div>
 
             <div class="banner_options">
@@ -191,40 +212,11 @@
 
                 </div>
 
-                <!--////////////////////////////////////////////////-->
-                <div class="widget">
-                    <div class="widget_title">
-                        <div class="widget_title_text">Sobre o Jogo</div>
-                        <div class="widget_title_bar"></div>
-                    </div>
-                    <div class="widget_body">
-                        <article>
-                            <div class="news_data">
-                                <div class="news_posted_at">12 JAN 2022</div>
-                                <div class="news_comments">2 Comentários</div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <div class="widget">
-                    <div class="widget_title">
-                        <div class="widget_title_text">Fale Conosco</div>
-                        <div class="widget_title_bar"></div>
-                    </div>
-                    <div class="widget_body">
-                        <article>
-                            <div class="news_data">
-                                <div class="news_posted_at">12 JAN 2022</div>
-                                <div class="news_comments">2 Comentários</div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
             </section>
 
+<!--//////ASIDE/////ASIDE//////ASIDE////////ASIDE///////ASIDE////////ASIDE////////////-->
             <aside><!--vai ficar na direita por ser aside?-->
+
                 <div class="widget">
                     <div class="widget_title">
                         <div class="widget_title_text">Sobre o Jogo</div>

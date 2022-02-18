@@ -37,7 +37,8 @@ header{
 .logo{
     display:flex;
     align-items: center;
-    
+    margin-left: -10px;
+    margin-top: 30px;
 }
 
 .menu{
@@ -68,7 +69,8 @@ nav a{
 
 nav .active a,
 nav a:hover{
-    background-color: #39aae1;
+    background-color: #3a3b13;
+    border-radius: 10px;
     color:#FFFFFF;
 }
 
@@ -94,8 +96,8 @@ nav a:hover{
     display:flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #928404;
-    opacity: 75%;
+    background-color: #524900;
+    opacity: 70%;
 }
 
 .banner_headline h1{
@@ -108,6 +110,14 @@ nav a:hover{
     padding:0;
     opacity: 100%;
     width: 300px;/*area*/
+}
+
+aside{
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-left: 3px solid black;
+    border-radius: 20px;
 }
 
 .banner_headline h3{
@@ -126,7 +136,7 @@ nav a:hover{
     height:210px;/*tamanho fixo*/
     background-color: #3f3908;
     display: flex;
-    opacity: 75%
+    opacity: 70%
 }
 
 banner_1,
@@ -293,3 +303,88 @@ footer .widget_body{
     margin-bottom: 30px;
 }
 
+.menuMobile{
+    display:none;
+    width:40px;
+    height:40px;
+    
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-right: 20px;
+}
+
+/*/////MEDIA/////MEDIA/////MEDIA///////MEDIA////////MEDIA////////MEDIA////MEDIA//////MEDIA//////////MEDIA/////////////////*/
+
+@media(max-width:720px){
+
+    .banner_headline {
+        padding: 20px;
+    }
+
+    .banner_headline h1{
+        font-size: 55px;
+    }
+
+    .banner_headline h3{
+        font-size: 20px;
+    }
+
+    .banner_options{
+        flex-direction: column;
+    }
+
+    .container{
+        flex-direction: column;
+    }
+    #geral aside,
+    #geral section{
+        padding: 20px;
+    }
+
+    .footer_menu{
+        flex-direction: column;
+    }
+
+    .footer_area{
+        flex-direction: column;/*faz as ficar num formato mais parecido para celular*/
+        padding:20px;
+    }
+
+
+    header .container{
+        flex-direction: row;
+    }
+
+    nav ul{
+        flex-direction: column;
+        display:none;
+        position:absolute;
+        left:0;
+        width:100%;
+        background-color:#FFFFFF;
+    }
+    header{
+        height: auto;
+    }
+
+    .logo{
+        padding-left: 20px;
+    }
+
+    .logo_name{
+        padding-left: 20px;
+    }
+
+    .menuMobile{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+    }
+
+    .mm_line{
+        height:3px;
+        background-color: #cddb0c;
+    }
+
+}
