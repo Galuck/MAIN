@@ -1,0 +1,35 @@
+body{
+    background-color:grey;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+nav ul,
+nav li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul{
+    display:flex;
+}
+
+nav a{
+    display:block;
+    padding: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color:#727272;
+    font-family:Arial;
+}
+
+nav .active a,
+nav a:hover{
+    background-color: #39aae1;
+    color:#FFFFFF;
+}
