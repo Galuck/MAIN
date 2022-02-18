@@ -1,5 +1,5 @@
 body{
-    background-color:grey;
+    background-color:#2e2e2e;
     margin: 0;
     padding: 0;
 }
@@ -69,7 +69,9 @@ nav a:hover{
     background-image:url('../images/elden-ring-background.jpg');
     background-position: center;
     background-size:cover;
+    
     height: 420px;
+    height: 690px;
 }
 
 .column{
@@ -79,38 +81,43 @@ nav a:hover{
 .banner_headline{
     border-top-left-radius:50px;
     border-top-right-radius:50px;
-    flex:1;
+    flex:2;
     display:flex;
     flex-direction: column;
     justify-content: center;
-    background-color: orange;
+    background-color: #928404;
+    opacity: 75%;
 }
 
 .banner_headline h1{
     color:#FFFFFF;
     font: size 50px;
+    font-weight: bold;
     text-shadow: 1px 1px 0px #000000;
     margin-left: 7px;
     margin-bottom: 0;
     padding:0;
-    width: 600px;/*area*/
+    opacity: 100%;
+    width: 300px;/*area*/
 }
 
 .banner_headline h3{
     color:#FFFFFF;
     font: size 20px;
+    font-weight: bold;
     text-shadow: 1px 1px 0px #000000;
     margin-left: 15px;
     padding:0;
-    width: 300px;/*area*/
+    width: 150px;/*area*/
 }
+
 
 .banner_options{
     flex:1;
     height:210px;/*tamanho fixo*/
-    background-color: darkorange;
+    background-color: #3f3908;
     display: flex;
-
+    opacity: 75%
 }
 
 banner_1,
@@ -185,6 +192,16 @@ article .news_thumbnail img{
     height: auto ;
 }
 
+a:visited 
+{
+    color:yellow;
+    text-decoration: none; 
+}
+.news_resume{
+    margin-left: 20px;
+}
+
+
 .flex{/*para adicionar flex quando dentro de uma classe*/
     display: flex;
     flex-wrap: wrap;
@@ -201,12 +218,65 @@ article .news_resume{
     color: #5c5c5c;
     line-height: 19px;
     font-size: 13px;
+    margin-bottom: 30px;
 }
 
 article a{
     text-decoration: none;
 }
+article a-visited{
+    text-decoration: none;
+}
 
 footer{
     background-color: #1e1e1e;
+    display: flex;
+    justify-content: center;
 }
+
+.footer_menu{
+    display: flex;
+    
+}
+
+.fm_1, .fm_2 ,.fm_3{
+    flex: 1;
+    color: #FFFFFF;
+    padding: 20px;/*aumenta o espaçamento externo dentro do site, fazendo a divisão ficar bem melhor*/
+}
+
+.fm_1{
+    background-color: #39aae1;
+}
+.fm_2{
+    background-color: #0079c7;
+}
+.fm_3{
+    background-color: #2b4c99;
+}
+
+.footer_area{
+    display: flex;
+    background-color: #555050;
+    
+}
+
+.footer_areaitem{
+    flex: 1;
+    color: #FFFFFF;
+}
+
+.flexColumn{
+    flex-direction: column;
+}
+
+footer .widget_title_text{
+    margin-left: 10px;
+    color: #FFFFFF;
+}
+
+footer .widget_body{
+    margin-left: 10px;
+    margin-bottom: 30px;
+}
+
