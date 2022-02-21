@@ -1,0 +1,32 @@
+/*Exemplos de seletores por atributo*/
+
+[required]{/*seleciona pra quem tem o atrbuto required*/
+    background-color: red;
+}
+
+input [required]{/*seleciona pra quem tem o atributo required e é um input*/
+    background-color: red;
+}
+
+input[name="usuario"]{
+    background-color: blue;
+}
+
+a[href*="futebol"]{/* selecionar um elemento através de algum texto que compõe o atributo?*/
+    background-color: blue;
+}
+
+a[href^="https"]{/*que começam com https*/
+    background-color: blue;
+}
+
+/*///////////////////*/
+
+
+div{
+    margin:20px;
+}
+
+div:empty{/*div que não tem conteúdo */
+    background-color: red;
+}
