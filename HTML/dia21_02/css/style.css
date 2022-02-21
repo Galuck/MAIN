@@ -25,8 +25,41 @@ a[href^="https"]{/*que começam com https*/
 
 div{
     margin:20px;
+    transform: scale(2);/*movimentar e distorcer o elemento*/
+    /*scale é tipo no Unity mesmo, você basicamente aumenta ou diminui a escala do elemento */
+    transform: scale(2, 0.5);/*dobrando na horizontal e dividindo na vertical*/
+    transform:rotate(30deg);/*vai rodar 30 graus no sentido horario*/
+    right: 0;
+    bottom:0;
+    transform:skew(20deg, 10deg);/*vai distorcer o elemento*/
 }
 
 div:empty{/*div que não tem conteúdo */
     background-color: red;
+
 }
+
+p::first-letter{/*dois pontos 2 vezes é o conteúdo do elemento */
+    font-size: 30px;
+    font-weight: bold;
+}
+
+body :not(p){/*vai aplicar isso em tudo menos na parte selecionada*/
+    background-color: gray;
+}
+
+div:nth-last-child(2){/*vai aplicar no segundo elemento de baixo para cima */
+    background-color: darkgrey;
+}
+
+
+span::before{/*antes dos span, fazer tal coisa*/
+    content:"->";
+    background-color: red;
+    border: 1px solid black;
+}
+
+
+
+
+/*o after é a mesma coisa, só q né, depois*/
