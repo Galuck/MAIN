@@ -8,6 +8,8 @@
 body{
     margin:0;
     padding:0;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-size: 16px;
 }
 
 header{
@@ -21,7 +23,7 @@ header{
 .header{
     max-width: 1140px;
     height: 100px;
-    background-color: grey;
+    /**background-color: grey;                   tirar comment pra ver a área*/
     margin: auto;
     display:flex;
     align-items: center;
@@ -41,7 +43,7 @@ header{
 
 .menu{
     flex:1;
-    background-color:red;/*cor da area do menu*/
+    /**background-color:red;           /*cor da area do menu*/
     display:flex;
     justify-content:flex-end;/*conteúdo vai ser organizado na direita, no fim da div*/
 }
@@ -56,8 +58,76 @@ header{
 
 }
 
-.menu li {
+.menu li a{
     color:white;
     text-transform: uppercase;
     font-weight: bold;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 30px;
+    display:flex;/*porque precisa aumentar a altura*/
+    align-items: center;
+
+    /*border-bottom:5px solid #000;       se quiser tirar o "pulinho do hover"*/
+
+}
+
+nav .active a, /*active pra mostrar qual a página está ativa (mudar depois)*/
+.menu li a:hover{
+    border-bottom: 3px solid #b28756;/*hover vai ficar na cor laranjinha do awax*/
+    color:rgb(163, 162, 162);
+}
+
+
+
+
+
+/*////BANNER////BANNER///BANNER//////BANNER////////BANNER/////BANNER//////BANNER///////////////*/
+
+.banner{
+    background-color:#333;/*enquanto a imagem não carrega, esse é o fundo que vai aparecer*/
+
+    /*height:100vh;/*100vh é 100% da altura do que está aparecendo pro usuário (view height*/
+    height:calc(100vh - 100px);/*mesma coisa, mas vai descontar a altura do header*/
+    /*abaixo daqui vai gerar uma barra de rolagem*/
+    background-image:url('https://images3.alphacoders.com/693/thumb-1920-693872.jpg');
+    background-size:cover; /*ajustar para 'cobrir/cover' todo o espaço*/
+    background-position: center;
+    overflow:hidden;/*tudo que passar da largura do banner vai ser escondido*/
+}
+
+.banner .sliders{
+    /*tem que ter no mínimo a largura de X slides dentro dele*/
+    width:1000vw; /* tamanho de 10 slides*/
+    height:100%;
+    /*background-color:red;*/
+}
+
+
+.banner .slide{
+
+    width:100vw;
+    height:100%;
+    display:inline-block;
+    background-color: rgba(0,0,0,0.7);/*mudando a transparencia para escurecer o banner*/
+
+}
+
+.banner .sliderarea{
+    display:flex;
+    height:100%;
+    justify-content:center;
+    align-items: center;
+    color:#FFF;
+}
+
+.banner h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: bold;
+}
+
+.banner h1 span{
+    color: #b28756;
 }
