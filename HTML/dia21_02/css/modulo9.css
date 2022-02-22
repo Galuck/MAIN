@@ -1,0 +1,63 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    margin:0;
+    padding:0;
+}
+
+header{
+    height:100px;
+    background-color: black;
+    color:white;
+}
+
+
+/*/////HEADER///HEADER////HEADER////HEADER////HEADER//////HEADER/////////HEADER//////////*/
+.header{
+    max-width: 1140px;
+    height: 100px;
+    background-color: grey;
+    margin: auto;
+    display:flex;
+    align-items: center;
+}
+
+
+
+.logo{
+    width:100px;
+}
+
+.logoimg{
+    width:80px;
+    height:80px;
+    background-color: #b28756;
+}
+
+.menu{
+    flex:1;
+    background-color:red;/*cor da area do menu*/
+    display:flex;
+    justify-content:flex-end;/*conteúdo vai ser organizado na direita, no fim da div*/
+}
+
+.menu ul,
+.menu li{
+    list-style: none;/*sem pontinhos*/
+}
+
+.menu ul{
+    display:flex;/*menu vai ficar com itens um ao lado do outro*/
+
+}
+
+.menu li {
+    color:white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
