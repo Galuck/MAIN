@@ -373,3 +373,36 @@ nav .active a, /*active pra mostrar qual a página está ativa (mudar depois)*/
     width: 280px;
 
 }
+
+.section-projects--photoarea{
+    margin: 10px;
+    width: 260px;
+    height: 160px;
+}
+
+.section-projects--photoarea img{
+    width: inherit;
+    height: inherit;
+}
+
+.section-projects--photoinfo{
+    position:absolute;
+    background-color: rgba(0,0,0,0.7);/*opacidade*/
+    width: inherit;
+    height: inherit;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+
+}
+
+.section-projects--photoinfo h5{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.section-projects--photoarea:hover .section-projects--photoinfo{
+    display: flex;
+}
