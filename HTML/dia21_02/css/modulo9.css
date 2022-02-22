@@ -220,7 +220,7 @@ nav .active a, /*active pra mostrar qual a página está ativa (mudar depois)*/
     background-color: #F7f7f7;
 }
 
-.default.light .section-title
+.default.light .section-title,
 .default.light .section-body{
     color: black;
 }
@@ -229,7 +229,7 @@ nav .active a, /*active pra mostrar qual a página está ativa (mudar depois)*/
     background-color: #000;
 }
 
-.default.dark .section-title
+.default.dark .section-title,
 .default.dark .section-body{
     color:#FFF;
 }
@@ -269,7 +269,7 @@ nav .active a, /*active pra mostrar qual a página está ativa (mudar depois)*/
 }
 
 .section-aboutus--left p{
-    font-size: 14px;
+    font-size: 17px;
     line-height: 24px;
     
 }
@@ -283,4 +283,93 @@ nav .active a, /*active pra mostrar qual a página está ativa (mudar depois)*/
 .section-aboutus--right img{
     width: 480px;
     box-shadow: 5px 10px 30px #000;
+}
+
+
+.section-services{
+    display: flex;
+    
+    margin:auto;
+}
+
+.section-service{
+    flex:1;
+    text-align: center;
+    /*margin-left: 20px;*/
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;/*assim as do meio vão ser mais grossas, mas eu prefiro assim*/
+}
+
+.section-service h4{
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+
+.section-services .section-service img{
+    width: 200px;
+    box-shadow: 5px 10px 20px #000;
+    
+}
+
+.section-service p{
+    margin-top: 10px;
+    font-size: 13px;
+    color: #999;
+}
+
+.section-projects{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-projects--filters{
+    border:1px solid #333;
+    background-color: rgb(218, 216, 216);
+    border-radius:30px;
+    display: inline-block;/*só pega a área que precisa*/
+    padding: 0px 20px;
+
+}
+
+.section-projects--filters ul,
+.section-projects--filters li{
+    list-style: none;
+}
+
+.section-projects--filters li{
+    display:inline-block;
+    padding:10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-left: 1px solid #999;
+    border-bottom: 3px solid #EEE;
+}
+
+.section-projects--filters li:first-child{
+    border-left: 0;
+}
+
+.section-projects--filters li:hover{
+    border-bottom: 3px solid #b28756;/*hover vai ficar na cor laranjinha do awax*/
+    color:rgb(26, 26, 26);
+    background-color: rgba(51, 51, 51, 0.11);
+    cursor: pointer;
+}
+
+.section-projects--photos{
+    width: 100vw;
+    max-width: 1140px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;/*para quebrar a linha*/
+    justify-content:center;
+
+}
+
+.section-projects--photo{
+    width: 280px;
+
 }
