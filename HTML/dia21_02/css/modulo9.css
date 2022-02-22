@@ -166,6 +166,7 @@ nav .active a, /*active pra mostrar qual a página está ativa (mudar depois)*/
     display:flex;
     justify-self: center;
     align-items: center;
+    margin-left: 500px;
 }
 
 .banner .pointer{
@@ -176,6 +177,7 @@ nav .active a, /*active pra mostrar qual a página está ativa (mudar depois)*/
     margin-right: 5px ;
     margin-left: 5px ;
     cursor: pointer;
+    
 }
 
 .banner .pointer.active{
@@ -183,7 +185,7 @@ nav .active a, /*active pra mostrar qual a página está ativa (mudar depois)*/
 }
 
 .default {
-    background-color: red;
+    /**background-color: red;*/
     padding-top:  50px;
     padding-bottom:  50px;
 
@@ -192,9 +194,93 @@ nav .active a, /*active pra mostrar qual a página está ativa (mudar depois)*/
 .default .section-desc,
 .default .section-title{
     text-align: center;
-     
+    text-transform: uppercase;
+}
+
+.default .section-title{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.default .section-desc{
+    font-size: 13px;
+    font-weight: bold;
+    color:rgb(161, 161, 161);
+    margin-top: 15px;
+    margin-bottom: 40px;
 }
 
 .default .section-body{
+    margin:auto;
+    max-width: 1140px;
     
+}
+
+.default.light{
+    background-color: #F7f7f7;
+}
+
+.default.light .section-title
+.default.light .section-body{
+    color: black;
+}
+
+.default.dark{
+    background-color: #000;
+}
+
+.default.dark .section-title
+.default.dark .section-body{
+    color:#FFF;
+}
+
+
+.button{
+    display:inline-block;
+    background-color: #b28756;
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight:bold;
+    text-decoration: none;
+    padding:10px 30px;
+    margin-top: 30px;
+    border-radius: 20px;
+
+}
+
+
+
+
+
+
+
+
+
+/*/////////AREA ESPECÍFICAS/////AREA ESPECÍFICAS//////////AREA ESPECÍFICAS////////////AREA ESPECÍFICAS///////////////*/
+
+
+.section-aboutus{
+    display: flex;
+}
+
+.section-aboutus--left{
+    flex:1;
+}
+
+.section-aboutus--left p{
+    font-size: 14px;
+    line-height: 24px;
+    
+}
+
+.section-aboutus--right{
+    width:520px;
+    text-align: center;
+    /*background-color:red;*/
+}
+
+.section-aboutus--right img{
+    width: 480px;
+    box-shadow: 5px 10px 30px #000;
 }
