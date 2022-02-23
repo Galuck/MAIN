@@ -1,6 +1,9 @@
 .container{
     display:grid;
-    grid-template-columns: repeat(3,1fr);
+
+    /*fr é basicamente uma fração da área disponível*/
+    grid-template-columns: repeat(3,1fr);/*dá pra colocar valores qualquer pra definir o tamanho e a quantidade de colunas*/
+    grid-template-rows: 100px 200px 50px 300px;/*linha 1, 2 3 4...*/
     gap: 20px;
 }
 
