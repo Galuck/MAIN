@@ -406,3 +406,81 @@ nav .active a, /*active pra mostrar qual a página está ativa (mudar depois)*/
 .section-projects--photoarea:hover .section-projects--photoinfo{
     display: flex;
 }
+
+.bg-team{
+    background-image: url('https://image.api.playstation.com/vulcan/img/rnd/202012/0801/CLoxm4ikTqK7cDAaOBufWuU8.png');
+    background-size: cover;
+    background-position: center;
+    padding: 0px;
+}
+
+.section-team-area{
+    background-color: rgba(0,0,0,0.7);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.default.dark.bg-team .section-title{
+    color: #000;
+}
+
+
+/*slides*/
+
+.section-team .sliders{
+    /*tem que ter no mínimo a largura de X slides dentro dele*/
+    width:1000vw; /* tamanho de 10 slides*/
+    height:100%;
+    /*background-color:red;*/
+}
+
+
+.section-team .slide{
+    width: 280px;
+    width:100vw;
+    height:100%;
+    min-height: 300px;
+    display:inline-block;
+    background-color: white;/*mudando a transparencia para escurecer o banner*/
+    margin-right: 20px;
+}
+
+.section-team{
+    overflow:hidden;
+    max-width: 880px;
+    margin: auto;
+}
+
+.section-team .sliderarea{
+    display:flex;
+    height:100%;
+    justify-content:center;
+    align-items: center;
+    color:#FFF;
+    flex-direction: column;
+}
+
+.section-team-area .sliders-pointers{
+    margin-top: 30px;
+    height:20px;
+    display:flex;
+    justify-self: center;
+    align-items: center;
+    margin-left: 500px;
+}
+
+.section-team-area .pointer{
+    width: 15px;
+    height:15px;
+    border:2px solid #b28756;
+    border-radius: 8px;
+    margin-right: 5px ;
+    margin-left: 5px ;
+    cursor: pointer;
+    
+}
+
+.section-team-area .pointer.active{
+    background-color: #b28756;
+}
+
