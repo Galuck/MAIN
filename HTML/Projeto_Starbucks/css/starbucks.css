@@ -220,3 +220,40 @@ h2{
     background-size: cover;
     background-position: center;
 }
+
+.area4{
+    display: grid;
+    grid-template-columns: 690px 1fr;
+    background-color: #e8e9ee;
+
+}
+
+.area4--content{
+    padding:160px;
+
+}
+
+.area4--text{
+    margin-bottom: 50px;
+    line-height: 25px;
+}
+
+.area4--img1{
+    background-image: url('../images/bg3.jpg');
+    
+    background-position: left;
+}
+
+.area5{
+    background-image: url('../images/bg4.jpg');
+    background-size: cover;
+    background-position: center;
+    height:690px;
+}
+
+footer{
+    background-color: #333;
+    color: #fff;
+    padding: 80px;
+    text-align: center;
+}
