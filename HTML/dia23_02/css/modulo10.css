@@ -5,6 +5,11 @@
     grid-template-columns: repeat(3,1fr);/*dá pra colocar valores qualquer pra definir o tamanho e a quantidade de colunas*/
     grid-template-rows: 100px 200px 50px 300px;/*linha 1, 2 3 4...*/
     gap: 20px;
+    grid-template-areas: 
+        "item1 item2"
+        "item3 item4"
+        "item5"
+    ;
 }
 
 .item {
@@ -13,4 +18,20 @@
     padding: 20px;
     color:#fff;
     font-size:20px;
+}
+
+.item1{
+    grid-area: item1;
+}
+.ite2{
+    grid-area: item2;
+}
+.item3{
+    grid-area: item3;
+}
+.item4{
+    grid-area: item4;
+}
+.item5{
+    grid-area: item5;
 }
