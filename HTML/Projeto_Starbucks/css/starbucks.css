@@ -1,0 +1,11 @@
+
+
+body{
+    font-family: Oswald, "Helvetica";
+    margin:0;
+}
+
+header .line{
+    background-color: #117050;
+    height: 10px;
+}
