@@ -9,3 +9,9 @@ header .line{
     background-color: #117050;
     height: 10px;
 }
+
+.container{
+    max-width:1140px;
+    margin: auto;
+    background-color: green;
+}
