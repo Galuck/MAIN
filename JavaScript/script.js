@@ -1,0 +1,1 @@
+alert('está funcionando o alerta do navegador');
