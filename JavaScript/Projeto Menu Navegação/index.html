@@ -19,6 +19,11 @@
         margin-top:10px;
         margin-right:10px;
     }
+
+    .menu-opened{
+        width: 200px !important;
+    }
+
     #menu-area {
         width:200px;
         height:100vh;
@@ -45,8 +50,8 @@
 <body>
 <h1 id="titulo">Seja bem vindo(a)</h1>
 <aside>
-    <div id="menu-opener">
-        <img src="menu.png" width="36">
+    <div id="menu-opener" onclick="menuToggle">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/VisualEditor_-_Icon_-_Menu.svg/768px-VisualEditor_-_Icon_-_Menu.svg.png" width="36">
     </div>
     <div id="menu-area">
         <ul>
@@ -56,7 +61,7 @@
         </ul>
     </div>
 </aside>
-<script>
+<script src="menu.js">
 
 </script>
 </body>
