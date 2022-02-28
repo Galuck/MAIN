@@ -55,3 +55,24 @@ function trocar(){
     }
 }
 
+function somar(x, y){
+    let total = x + y;
+    return total;
+}
+
+//objetos
+//this só pode ser usado dentro de uma função
+
+let carro={
+    nome:'Fiat',
+    modelo: 'Uno',
+    peso: '800kg',
+    ligar:function(){
+        console.log("Ligando o " + this.modelo);//this = este objeto em questão
+        this.ligado=true;
+        console.log("Vrum");
+    }
+};
+
+console.log(carro['nome']);
+console.log(carro.nome);
