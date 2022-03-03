@@ -51,3 +51,13 @@ function showTime(){
 }
 
 let timer = setInterval(showTime,1000);
+
+//o rest tem uma função que recebe um número indeterminado de parâmetros, 
+//enquanto que o spread permite definir um número indeterminado de parâmetros 
+//para a função.
+
+//Includes é para ver se uma String tem tal letra incluída na String
+//padStart e padEnd meio que cobre uma parte do número, como numero de cartão por exemplo
+
+//CALLBACK
+//"I'm gonna call you back"
