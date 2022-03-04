@@ -10,7 +10,7 @@ body {
     min-height:100vh;
 }
 .models {
-    display:none;
+    display:none; 
 }
 
 header {
