@@ -49,4 +49,7 @@ pizzaJson.map((item, index)=>{
 
     c('.pizza-area').append( pizzaItem );
 
+
+    // não fopi finalizado, voltar após terminar o curso para aprender melhor as tecnicas e funcções
+
 });
