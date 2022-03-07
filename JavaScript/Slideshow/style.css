@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body{
     margin: 0;
 }
@@ -13,4 +17,40 @@ header{
     height:50px;
     background-color:red;
 
+}
+
+.slider{
+    flex: 1;
+    overflow: hidden;
+}
+
+.slider--width{
+    height:100%;
+    display: flex;
+    transition: all ease 0.3s;
+}
+
+.slider--item{
+    width:100vw;
+    height: inherit;
+    background-position: center;
+    background-size:cover;
+}
+
+.slider--controls{
+    position:absolute;
+    z-index: 99;
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.slider--control{
+    width: 50px;
+    height:50px;
+    background-color: white;
+    border-radius: 50%;
+    overflow:hidden;
+    cursor:pointer;
 }

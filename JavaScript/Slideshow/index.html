@@ -15,9 +15,21 @@
     <header>
         <div class="header"></div>
         <div class="slider">
-            
+            <div class="slider--controls">
+                <div class="slider--control" onclick="goPrev">Voltar</div>
+                <div class="slider--control" onclick="goNext">Próxima</div>
+            </div>
+            <div class="slider--width" style="width: calc(100vw * 3)"><!--multiplica pela quantidade de imagens-->
+                <div class="slider--item" style="background-image: url(images/1.jpg)"></div>
+                <div class="slider--item" style="background-image: url(images/2.jpg)n"></div>
+                <div class="slider--item" style="background-image: url(images/3.jpg)"></div>
+            </div>
         </div>
     </header>
+
+    <section>
+        <h1>Resto do Site</h1>
+    </section>
 
 
     <script src="script.js"></script>
