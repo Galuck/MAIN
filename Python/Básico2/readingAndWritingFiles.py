@@ -43,7 +43,6 @@ arquivo_de_texto.write("Essa linha foi adicionada ao apagar o resto das linha co
 #Quando o nome não existe, provavelmente vai criar um novo
 #arquivo_de_texto = open("testesDeTextoNOVO.txt", "w")
 
-
 #depois de abrir, TEM que fechar 
 arquivo_de_texto.close()
 

@@ -45,6 +45,6 @@ let etapas = [
                     {url:'84_2.jpg', legenda: 'Vice-Prefeito', small: true}
                 ]
             },
-        ]
+        ]//feito na meia boca só pra acabar de uma vez :/
     }
 ];

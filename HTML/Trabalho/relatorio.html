@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - @ViewData["Name"]</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cefort.projetos.jrmendonca.com.br/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cefort.projetos.jrmendonca.com.br/assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cefort.projetos.jrmendonca.com.br/assets/css/app.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="main" class='layout-horizontal'>
+            <div class="page-heading">
+                <section id="multiple-column-form">
+                    <div class="row match-height">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title text-center">@ViewData["Title"]</h4>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        @item.EstoqueAtual
+                                        @item.EstoqueMax
+                                        @item.EstoqueMin
+                                    }
+
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cefort.projetos.jrmendonca.com.br/assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cefort.projetos.jrmendonca.com.br/assets/js/mazer.js"></script>
+    <script src="https://cefort.projetos.jrmendonca.com.br/assets/js/custom.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,670 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial'
+}
+
+/*
+.container{
+    
+}
+
+
+*/
+
+.header--area{
+
+
+    display:flex;
+    background-color:#1F1F1F;
+    align-items:center;
+    width: 100%;
+    border-radius: 0px;
+    
+
+}
+
+.header--menu{
+    margin-left: 250px;
+    display:flex;
+    align-items:center;
+}
+
+
+.header--menu nav ul,
+.header--menu nav li{
+    margin-left:80px;
+    list-style: none;
+    margin: 10px;
+    padding: 0;
+}
+
+.logo_img{
+    
+    padding: 10px;
+    padding-left: 60px;
+    padding-right: 60px;
+    width: 40%;
+    /**/
+
+    margin-left: 100px;
+    margin-right: 40px;
+    background-color: #f3f3f3;
+    color: #1F1F1F;
+}
+
+
+
+
+nav ul{
+    display:flex;
+}
+
+/**/
+nav a{
+
+    font-family: 'Arial'   ;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    
+    margin-left: 15px;
+    display:block;
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    color:#CDB66C;
+    font-size: 16px;
+    border: solid 1px ;
+    border-color: #CDB66C;
+    border-radius: 5px;
+
+}
+
+nav .active a,
+nav a:hover{
+    transition-duration: 0.5s;
+    background-color: #CDB66C;
+    border-radius: 5px;
+    color:#1F1F1F;
+}
+
+
+
+h2{
+    text-align: center;
+    font-weight: bold;
+    color:#f3f3f3;
+}
+
+form{
+    font-family: 'Arial'   ;
+    font-style: normal;
+    color:#f3f3f3;
+    background: #E5E5E5;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input{
+    border-radius: 5px;
+    padding:5px;
+    width: 240px;
+    height: 35px;
+    border:none;
+    margin-top: 8px;
+}
+
+.submit{
+    background-color: #CDB66C ;
+}
+
+
+fieldset{
+    min-width: 320px;
+    max-width: 800px;
+
+    padding: 69px;
+    margin: 69px;
+
+    
+
+    height: 300px;/**/
+    width: 15%;
+    border:none;
+    border-radius: 7px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1F1F1F;
+}
+
+label{
+    margin:5px ;
+}
+
+.esqueceu_senha a{
+    margin-left: 100px ;
+}
+
+.esqueceu_senha{
+    color: #f3f3f3;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+.esqueceu_senha a:visited{
+    color: #bbb5b5;
+}
+
+.nao_cadastrado{
+    color: #bbb5b5;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.nao_cadastrado a{
+    text-decoration: underline;
+    color: #bbb5b5;
+}
+
+.nao_cadastrado a:visited{
+    color: #bbb5b5;
+}
+
+
+footer{
+    width: 100%;
+    background-color: #1F1F1F;
+    color: #f3f3f3;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
+.footer--area{
+    margin: 20px;
+    display:flex;
+    align-items:center;
+}
+
+
+
+footer .footer-right h4{
+    margin: 15px;
+    text-align: left;
+    color: #bbb5b5;
+}
+
+.footer-right{
+    margin: 20px;
+    margin-left: 600px;
+    
+}
+
+.footer-left .logo_img{
+    
+    margin-right:900px;
+    
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 20%;
+    /**/
+
+    margin-left: 40px;
+    margin-right: 40px;
+    background-color: #f3f3f3;
+    color: #1F1F1F;
+}
+
+
+footer svg{
+    margin:10px;
+}
+
+.footer-left svg{
+    width:48px;
+    height: 48px;
+}
+
+footer .line{
+    background-color: #f3f3f3;
+    height: 1px;
+    width: 90%;
+    margin-left: 80px;
+}
+
+
+
+/*MEDIA/////MEDIA///MEDIA///MEDIA///MEDIA///MEDIA*/
+@media(min-width:1440px){
+    .footer-left svg{
+        width:48px;
+        height: 48px;
+    }
+}
+
+
+@media (min-width:1024px){
+    .footer-right{
+        margin-right: 100px;
+    }
+    .footer-left{
+        margin-right: 400px;
+        margin-left:100px;
+    }
+    .footer-left svg{
+        width:48px;
+        height: 48px;
+    }
+}
+
+@media (max-width:1024px){
+    .header--area{
+        width:1400px;
+        height: 100px;
+    }
+    form{
+        width:1400px;
+        height:750px;
+    }
+    fieldset{
+        height: 400px;
+    }
+    footer{
+        width:1400px;
+        height: 300px;
+    }
+    nav a{
+        line-height: 150%;
+        padding: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 16px;  
+    }
+
+    .footer-left{
+        margin-right: 400px;
+    }
+
+    .footer-left svg{
+        width:48px;
+        height: 48px;
+    }
+}
+
+@media(max-width:768px){
+    .header--area{
+        width:1400px;
+        height: 150px;
+    }
+
+    .logo_img
+    {
+        margin-left: 80px;
+        margin-right: 20px;
+    }
+
+    form{
+        width:1400px;
+        height:1000px;
+    }
+    fieldset{
+        width:600px;
+        height: 700px;
+    }
+    h2{
+        font-size: 42px;
+    }
+    label{
+        font-size: 28px;
+        margin-top: 40px;
+    }
+    input{
+        width:400px;
+        height:60px;
+    }
+    footer{
+        width:1400px;
+        height: 379px;
+    }
+    nav a{
+        line-height: 150%;
+        padding: 30px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 18px;  
+    }
+
+    .esqueceu_senha a{
+        font-size: 20px;
+    }
+
+    .nao_cadastrado, .nao_cadastrado a{
+        font-size: 20px;
+    }
+
+    .footer--area{
+        width: 1000;
+    }
+    
+    .footer-right{
+        margin-right: 400px;
+    }
+
+    h4{
+        font-size: 24px;
+    }
+
+    .header--menu{
+        margin-left: 200px;
+    }
+
+    .footer-left svg{
+        width:48px;
+        height: 48px;
+    }
+}
+
+
+
+
+/*MEDIA/////MEDIA///MEDIA///MEDIA///MEDIA///MEDIA*/
+
+@media (min-width: 1280px) and (max-width: 1720px) {
+
+    footer{
+        
+    }
+
+
+}
+
+@media (min-width: 600px) and (max-width:900px){
+
+    .header--menu{
+        position: absolute;
+        top:55px;
+        right: 0;
+        width: 50%;
+        height: 40%;
+        background:#1F1F1F;
+        flex-direction: column;
+        
+        align-items: center;
+        
+        display:none;
+        transition: transform 0,3s ease-in;
+    }
+
+    
+
+    .header--menu ul{
+        flex-direction: column;
+        
+    }
+
+    .header--menu li{
+        margin-left:0;
+       
+    }
+
+    .menu-mobile{   
+        display: flex;
+        flex-direction: column;
+        margin-left: 900px;
+    }
+    
+    .menu-mobile div{
+        width: 32px;
+        height:2px;
+        background: #f3f3f3;
+        margin:4px;
+    }
+    
+    .logo_img{
+    
+        padding: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        width: 60px;
+        /**/
+        margin: 10px;
+        margin-bottom: 10px;
+        margin-left: 50px;
+        margin-right: 30px;
+        
+        background-color: #f3f3f3;
+        color: #1F1F1F;
+    }
+
+    .header--menu{
+        display: none;
+        flex-direction: column;
+    }
+
+
+    .texto_principal{
+        
+        margin-left: 60px;
+        margin-top: 30px;
+        font-size: 8px;
+    }
+
+    .texto_secundario{
+        margin-left: 60px;
+        margin-top: 20px;
+
+        font-size: 14px;
+    }
+
+    .area_cobranca{
+        display: flex;
+        flex-direction: column;
+        background: #E5E5E5;
+        justify-content: center;
+    }
+    
+    .imagem_cartao{
+        margin: 40px;
+        margin-top:0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .detalhes_pagamento{
+        margin-left: 20px;
+    }
+
+    .detalhes_pagamento h2{
+        margin: 22px;
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+    
+    .detalhes_pagamento p{
+        margin: 10px;
+        margin-left: 25px;
+        margin-right: 0px;
+    }
+    
+    /*checkbox*/
+    .confirmar_pagamento{
+        margin-left: 60px;
+    }
+
+    .confirmar_pagamento .detalhe1 input {
+        width: 48px;
+        height: 48px;
+    }
+
+    .confirmar_pagamento .submit{
+        font-size: 16px;
+    }
+
+    .footer-right{
+        margin: 20px;
+        margin-left: 250px;
+        
+    }
+
+    footer .line {
+        margin-left: 50px;
+    }
+
+}
+
+@media (min-width: 375px) and (max-width:500px){
+
+    .header--menu{
+        position: absolute;
+        top:55px;
+        right: 0;
+        width: 50%;
+        height: 40%;
+        background:#1F1F1F;
+        flex-direction: column;
+        
+        align-items: center;
+        
+        display:none;
+        transition: transform 0,3s ease-in;
+    }
+
+    
+
+    .header--menu ul{
+        flex-direction: column;
+        
+    }
+
+    .header--menu li{
+        margin-left:0;
+       
+    }
+
+    .menu-mobile{   
+        display: flex;
+        flex-direction: column;
+        margin-left: 125px;
+    }
+    
+    .menu-mobile div{
+        width: 32px;
+        height:2px;
+        background: #f3f3f3;
+        margin:4px;
+    }
+    
+    h1{
+        font-size: 32px;
+    }
+
+    .texto_principal{
+        
+        margin-left: 30px;
+        margin-top: 15px;
+        
+    }
+
+    .texto_secundario{
+        
+        margin-left: 30px;
+        margin-top: 20px;
+
+    }
+
+    .texto_secundario h2{
+        font-size: 20px;
+    }
+
+    .logo_img{
+    
+        padding: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        width: 60px;
+        /**/
+        margin: 10px;
+        margin-bottom: 10px;
+        margin-left: 50px;
+        margin-right: 30px;
+        
+        background-color: #f3f3f3;
+        color: #1F1F1F;
+    }
+    
+
+    /**/
+
+   
+
+    fieldset{
+
+        padding: 10px;
+        margin: 30px;
+    
+        height: 400px;/**/
+        width: 250px;
+        border:none;
+        border-radius: 7px;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #1F1F1F;
+    }
+
+    fieldset label{
+        margin-left: 20px;
+        
+        
+    }
+
+    fieldset input{
+        margin-left: 40px;
+        margin-right: 40px;
+        width: 300px;
+        font-size: 16px;
+    }
+
+    fieldset .submit{
+        margin-left: 10px;
+        margin-right: 200px;
+        width: 150px;
+        font-size: 16px;
+    }
+
+    
+    .footer-right{
+        margin: 20px;
+        margin-right: 30px;
+    }
+
+    .footer-right h4{
+        font-size: 12px;
+    }
+
+    .footer-left .logo_img{
+        margin: 0px;
+        height: 24px;
+        width: 69px;
+    }
+
+    .footer-left svg{
+        width:24px;
+        height: 24px;
+    }
+
+
+    footer .line {
+        margin-left: 20px;
+    }
+
+    #cvc{
+        margin-left: 12px;
+    }
+
+   
+}
+

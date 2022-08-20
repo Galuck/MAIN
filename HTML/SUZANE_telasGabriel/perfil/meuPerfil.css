@@ -1,0 +1,1015 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', 'Arial';
+    overflow-x: hidden;
+}
+
+/*
+.container{
+    
+}
+
+
+*/
+
+h1{
+    /*texto Pagamento:*/
+    color: #1F1F1F;
+    font-size: 24px;
+}
+
+.header--area{
+
+
+    display:flex;
+    background-color:#1F1F1F;
+    align-items:center;
+    width: 100%;
+    border-radius: 0px;
+    
+
+}
+
+.header--menu{
+    margin-left: 250px;
+    display:flex;
+    align-items:center;
+}
+
+
+.header--menu nav ul,
+.header--menu nav li{
+    margin-left:80px;
+    list-style: none;
+    margin: 10px;
+    padding: 0;
+}
+
+.logo_img{
+    
+    padding: 10px;
+    padding-left: 60px;
+    padding-right: 60px;
+    width: 40%;
+    /**/
+
+    margin-left: 100px;
+    margin-right: 40px;
+    background-color: #f3f3f3;
+    color: #1F1F1F;
+}
+
+.menu-mobile{
+    display: none;
+    cursor: pointer;
+}
+
+/*////////////////////////////*/
+.overlay-menu{
+    display:none;
+    position: absolute;
+    
+
+    width: 100px;
+    
+    
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+}
+
+li a img{
+    width: 15.5px !important;
+    height: 16px !important;
+}
+
+.overlay-divider{
+    height: 0;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.overlay-menu li a{
+    margin: 0;
+    text-align: left;
+    border: none;
+    background: none !important;
+}
+
+.overlay-menu li{
+    margin: 0 !important;
+}
+
+
+.overlay-menu li:hover{
+    background-color: #bbb5b5;
+    transition-duration: 0.5s;
+}
+
+.overlay-menu ul{
+    flex-direction: column;
+}
+
+
+/*///////////////*/
+
+nav ul{
+    display:flex;
+}
+
+/**/
+nav a{
+
+    font-family: 'Arial'   ;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    
+    margin-left: 15px;
+    display:block;
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    color:#CDB66C;
+    font-size: 16px;
+    border: solid 1px ;
+    border-color: #CDB66C;
+    border-radius: 5px;
+
+}
+
+nav .active a,
+nav a:hover{
+    transition-duration: 0.5s;
+    background-color: #CDB66C;
+    border-radius: 5px;
+    color:#1F1F1F;
+}
+
+#mainline{
+    margin-top:30px
+}
+
+h2{
+    
+    text-align: left;
+    font-weight: bold;
+    color:#1F1F1F;
+}
+
+.line{
+    align-items: center;
+    background-color: #1F1F1F;
+    height: 1px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+a{
+    cursor: pointer;
+}
+
+
+body{
+    background: #F3F3F3;
+}
+
+.area_principal{
+    display: flex;
+    
+}
+
+.perfil_isolado{
+
+    width: 280px;
+    height: 304px;
+
+    margin: 40px;
+    margin-left: 80px; 
+    margin-right:10px;
+    
+    background-color: #F3F3F3;
+    border-radius: 5px;
+    border: 2px solid #1F1F1F;
+    /* border-left: none !important; */
+}
+
+.perfil_isolado .perfil_img{
+    height:144px;
+    width: 144px;
+
+    margin-top: 32px;
+    margin-left:68px;
+    /**/
+    border-radius: 100px;
+    background-color: #908E8E;
+    color: #1F1F1F;
+}
+
+.area_perfil{
+    width: 850px;
+    
+    margin: 40px;
+    background-color: #F3F3F3;
+    border-radius: 5px;
+    border: 2px solid #1F1F1F;
+}
+
+.perfil{
+    margin-left: 63.4px;
+    margin-top: 59px;
+}
+
+.perfil_mobile{
+    display: none;
+}
+
+.titulo{
+    font-size: 24px !important;
+}
+
+.Sobre_mim{
+    margin-top: 40px;
+    color: #f3f3f3;
+}
+
+.Sobre_mim p{
+    font-size:16px;
+    margin-bottom: 20px;
+}
+
+
+.dados_principais{
+    display: flex;
+    flex-direction: row;
+}
+
+.dados_principais-left{
+    display: flex;
+    flex-direction: column;
+}
+
+.dados_principais h1{
+    color: #000000;
+}
+
+.dados_principais h2{
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.avaliacao-projeto img{
+    width: 16px;
+    height: 16px;
+    background-color: #CDB66C; /**/
+    border-radius: 50px;
+}
+
+.inputs_perfil input{
+
+    width: 715px;
+    height: 73px;
+
+    margin-top: 24px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+.inputs_cidade input{
+    width: 461px;
+    height: 73px;
+    margin-top: 24px;
+    margin-right: 72px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+.uft{
+    margin-left: 450px;
+}
+
+.textao{
+    width: 714px !important;
+    height: 233px !important;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+.inputs_uft input{
+    width: 180px;
+    height: 73px;
+    margin-top: 24px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+#camera_icon{
+    font-size: 24px;
+    position: absolute;
+    top: 357.61px;
+    left:245px;
+}
+
+.valor_consulta input{
+    width: 180px;
+    height: 73px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+#minha_conta{
+    margin-top: 45px !important;
+    margin-left: 150px;
+}
+
+.perfil_isolado i{
+    font-size:20px;
+}
+
+.publicacoes{
+    display:flex;
+    flex-direction: row !important;
+}
+
+.publicacao .edit_icon{
+    margin: 0;
+    margin-top:75px;
+    margin-left:140px;
+}
+
+.campo_input{
+    display: flex;
+}
+
+#icon_textao{
+    margin-top:200px;
+}
+
+.edit_icon{
+    margin: 30px;
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 100px;
+    background-color: #D9D9D9;
+}
+
+.edit_icon i{
+    font-size:20px;
+    margin-left: 22px;
+    margin-top: 20px;
+    position: absolute;
+    color: #908E8E;
+}
+
+
+.publicacao{
+    width: 210px;
+    height: 233px;
+    margin:0;
+    margin-right: 42px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    border-radius: 10px;
+}
+
+.cidade_uft_inputs{
+    display:flex;
+    flex-direction: row;
+}
+
+.cidade_uft{
+    display:flex;
+    flex-direction: row;
+}
+
+.enviar_form{
+    align-items: center;
+    
+}
+
+.botao_submit{
+    color: #f3f3f3;
+    font-size: 24px;
+    width:300px;
+    height: 100px;
+    border: 2px solid #000000;
+    border-radius:10px;
+    background-color: #000000;
+    margin: 250px;
+    margin-top: 100px;
+}
+
+input{
+    background-color:#f3f3f3;
+    border-radius: 5px;
+    padding:5px;
+    width: 432px;
+    height: 48px;
+    border:none;
+    margin-bottom: 35.7px;
+}
+
+.submit{
+    background-color: #CDB66C ;
+    
+}
+
+.imagem_cartao{
+    background-color: #000000 ;
+    border-radius: 25px;
+
+    margin-top: 150px;
+    width:592px;
+    height:373.59px;
+
+    color: #f3f3f3;
+
+    display: flex;
+    
+}  
+
+
+
+#cvc{
+    flex-direction: column;
+    margin-left: 32px;
+}
+
+.trabalhos{
+    display: flex;
+    flex-direction: row;
+}
+
+.item{
+    margin: 20px;
+    width: 200px;
+    height: 248px;
+    background: #f3f3f3;
+    color: #000000;
+    border-radius: 15px;
+}
+
+
+footer{
+    width: 100%;
+    background-color: #1F1F1F;
+    color: #f3f3f3;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
+.footer--area{
+    margin: 20px;
+    display:flex;
+    align-items:center;
+}
+
+.profissional{
+    font-size: 24px !important;
+    color: #fdfbfb;
+
+}
+
+.resumo_profissional{
+    display: flex;
+    flex-direction: column;
+}
+
+footer .footer-right h4{
+    margin: 15px;
+    text-align: left;
+    color: #bbb5b5;
+}
+
+.footer-right{
+    margin: 20px;
+    margin-left: 1000px;
+    margin-right:0px !important;
+    
+}
+
+.footer-left .logo_img{
+    
+    margin-left: 100px;
+    margin-right:1000px;
+    
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 20%;
+    /**/
+
+    margin-left: 40px;
+    margin-right: 40px;
+    background-color: #f3f3f3;
+    color: #1F1F1F;
+}
+
+
+footer svg{
+    margin:10px;
+}
+
+footer .line{
+    background-color: #f3f3f3;
+    height: 1px;
+    width: 90%;
+    margin-left: 80px;
+}
+
+.menu-mobile{
+    display: none;
+}
+
+.uft2{
+    display: none;
+}
+
+/*MEDIA/////MEDIA///MEDIA///MEDIA///MEDIA///MEDIA*/
+
+@media (min-width: 600px) and (max-width:900px){
+
+    .uft{
+        display:none;
+    }
+    .uft2{
+        display:block;
+    }
+
+    /* .. */
+    .area_principal{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .botao_submit{
+        
+        font-size: 24px;
+        width:250px;
+        height: 100px;
+        
+        margin: 180px;
+        margin-top: 100px;
+    }
+
+    .cidade_uft{
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .textao{
+        width: 600px !important;
+        height: 250px !important;
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+
+    .textao input{
+        margin: 0;
+        width: 600px !important;
+        height: 250px !important;
+    }
+    
+    .inputs_uft input{
+        width: 180px;
+        height: 73px;
+        margin-top: 24px;
+        border: 2px solid #000000;
+        border-radius: 10px;
+    }
+    
+
+
+    .publicacoes{
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .inputs_perfil input {
+        width: 600px;
+        height: 73px;
+        margin-top: 24px;
+        border: 2px solid #000000;
+        border-radius: 10px;
+    }
+
+    /* .. */
+    .publicacao{
+        width: 400px;
+        height: 350px;
+        margin:0;
+        margin-left: 42px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+    .publicacao input{
+        width: 400px;
+        height: 350px;
+        margin:0;
+    }
+
+
+    .perfil_mobile{
+        display: flex;
+        height:48px;
+        width: 48px;
+        /**/
+        
+        
+        margin-left: 40px;
+        background-color: #f3f3f3;
+        color: #1F1F1F;
+    }
+    
+    .logo_img{
+    
+        padding: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        width: 60px;
+        /**/
+        margin: 10px;
+        margin-bottom: 10px;
+        margin-left: 50px;
+        margin-right: 30px;
+        
+        background-color: #f3f3f3;
+        color: #1F1F1F;
+    }
+
+    .header--menu{
+
+        position: absolute;
+        top:55px;
+        right: 0;
+        width: 50%;
+        height: 40%;
+        background:#1F1F1F;
+        flex-direction: column;
+        
+        align-items: center;
+        
+        display:none;
+        transition: transform 0,3s ease-in;
+    }
+
+    .area_perfil{
+        width: 700px;
+        margin: 20px;
+        background-color: #E5E5E5;
+        border-radius: 5px;
+    
+    }
+    
+    .perfil{
+        margin: 30px;
+        margin-left: 40px;
+
+    }
+
+    .dados_principais{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header--menu ul{
+        flex-direction: column;
+        
+    }
+
+    
+    .menu-mobile{   
+        display: flex;
+        flex-direction: column;
+        margin-left: 400px;
+        margin-top: 10px;
+    }
+    
+    .menu-mobile div{
+        width: 32px;
+        height:2px;
+        background: #f3f3f3;
+        margin:4px;
+    }
+   
+    
+    .footer-right{
+        margin: 20px;
+        margin-left: 250px;
+        
+    }
+
+    footer .line {
+        margin-left: 50px;
+    }
+
+    .header--right{
+        display:flex;
+        flex-direction: row;
+    }
+    .header--menu .perfil_img{
+        display: none;
+    }
+
+
+    #camera_icon{
+        top: 330.61px;
+        left:178px;
+    }
+
+    #minha_conta{
+        font-size:32px;
+        margin-left: 120px;
+    }
+
+}
+
+@media (min-width: 375px) and (max-width:500px){
+
+
+    #camera_icon{
+        top: 334.61px;
+        left:162px;
+    }
+
+
+    /* .. */
+    .uft{
+        display:none;
+    }
+    .uft2{
+        display:block;
+    }
+
+    /* .. */
+    .area_principal{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .botao_submit{
+        
+        font-size: 24px;
+        width:250px;
+        height: 100px;
+        
+        margin:0px;
+        margin-top: 100px;
+    }
+
+
+    .inputs_cidade input{
+        width: 266px;
+    }
+
+    .cidade_uft{
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .textao{
+        width: 600px !important;
+        height: 250px !important;
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+
+    .textao input{
+        margin: 0;
+        width: 350px !important;
+        height: 250px !important;
+    }
+    
+    .inputs_uft input{
+        width: 180px;
+        height: 73px;
+        margin-top: 24px;
+        border: 2px solid #000000;
+        border-radius: 10px;
+    }
+    
+
+
+    .publicacoes{
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .inputs_perfil input {
+        width: 266px;
+        height: 73px;
+        margin-top: 24px;
+        border: 2px solid #000000;
+        border-radius: 10px;
+    }
+
+    /* .. */
+    .publicacao{
+        width: 260px;
+        height: 350px;
+        margin:0;
+        margin-left: 0px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+    .publicacao input{
+        width: 400px;
+        height: 350px;
+        margin:0;
+    }
+    /* .. */
+
+    .header--menu .perfil_img{
+        display: none;
+    }
+
+    .header--right{
+        display:flex;
+        flex-direction: row;
+    }
+
+    .perfil_mobile{
+        display:flex;
+        
+        height:36px;
+        width:36px;
+        /**/
+    
+        
+        margin-left: 10px;
+        background-color: #f3f3f3;
+        color: #1F1F1F;
+    }
+
+
+    .header--menu{
+        position: absolute;
+        top:55px;
+        right: 0;
+        width: 50%;
+        height: 40%;
+        background:#1F1F1F;
+        flex-direction: column;
+        
+        align-items: center;
+        
+        display:none;
+        transition: transform 0,3s ease-in;
+    }
+
+    .area_perfil{
+        width: 340px;
+        margin: 20px;
+        background-color: #E5E5E5;
+        border-radius: 5px;
+    
+    }
+    
+    .perfil{
+        margin: 30px;
+        margin-left: 40px;
+    
+    }
+
+    .dados_principais{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header--menu ul{
+        flex-direction: column;
+        
+    }
+
+    .header--menu li{
+        margin-left:0;
+       
+    }
+
+    .menu-mobile{   
+        display: flex;
+        flex-direction: column;
+        margin-left: 125px;
+    }
+    
+    .menu-mobile div{
+        width: 32px;
+        height:2px;
+        background: #f3f3f3;
+        margin:4px;
+    }
+    
+    h1{
+        font-size: 32px;
+    }
+
+
+
+    .logo_img{
+    
+        padding: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        width: 60px;
+        /**/
+        margin: 10px;
+        margin-bottom: 10px;
+        margin-left: 50px;
+        margin-right: 30px;
+        
+        background-color: #f3f3f3;
+        color: #1F1F1F;
+    }
+    
+    fieldset{
+
+        padding: 10px;
+        margin: 30px;
+    
+        height: 400px;/**/
+        width: 250px;
+        border:none;
+        border-radius: 7px;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #1F1F1F;
+    }
+
+    fieldset label{
+        margin-left: 20px;
+        
+        
+    }
+
+    fieldset input{
+        margin-left: 40px;
+        margin-right: 40px;
+        width: 300px;
+        font-size: 16px;
+    }
+
+    fieldset .submit{
+        margin-left: 10px;
+        margin-right: 200px;
+        width: 150px;
+        font-size: 16px;
+    }
+
+    
+
+    .footer-right{
+        margin: 20px;
+        margin-right: 30px;
+    }
+
+    .footer-right h4{
+        font-size: 12px;
+    }
+
+    .footer-left .logo_img{
+        margin: 0px;
+        height: 24px;
+        width: 69px;
+    }
+
+    .footer-left svg{
+        width:24px;
+        height: 24px;
+    }
+
+
+    footer .line {
+        margin-left: 20px;
+    }
+
+    #cvc{
+        margin-left: 12px;
+    }
+
+   
+}
+
+
+
+
+
