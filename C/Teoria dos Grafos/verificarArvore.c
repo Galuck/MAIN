@@ -11,7 +11,6 @@ typedef struct vertice
     int tam_lista_adj;
 }vertice;
 
-
 void mostrar_tudo (vertice * vertices, int qtd_vertices);
 void dfs(vertice * vertices, int qtd_vertices, int raiz);
 
@@ -21,9 +20,6 @@ int main()
     int i,a,b,qtd_cc=0;
     vertice * vertices;
     scanf("%d %d",&qtd_vertices, &qtd_arestas);
-    
-    // printf("\n Quantidade de vertices: %d ",qtd_vertices);
-    // printf("\n Quantidade de arestas: %d\n",qtd_arestas);
 
     vertices = (vertice*)calloc(qtd_vertices+1,sizeof(vertice));
 
@@ -36,8 +32,6 @@ int main()
         vertices[b].tam_lista_adj++;
     }
 
-    // mostrar_tudo(vertices,qtd_vertices);
-
     for(i=1;i<=qtd_vertices;i++)
     {
         if (vertices[i].visitado==0)
@@ -49,14 +43,14 @@ int main()
 
     if (qtd_cc == 1 && qtd_vertices - 1 == qtd_arestas)
         printf("YES\n");
-    else
+    else{
         printf("NO\n");
-
-    // dfs(vertices,qtd_vertices,1);
+    }
+    
+    dfs(vertices,qtd_vertices,1);
 
     return 0;
 }
-
 
 void mostrar_tudo (vertice * vertices, int qtd_vertices)
 {
