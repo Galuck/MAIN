@@ -1,65 +1,77 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 
-typedef struct vertice{
-    int visitado;
-    int lista_adj[1000];
-    int tam_lista;
-    int in;
-    int lower;
-}vertice;
+#define INFINITY 9999
+#define MAX 10
 
-int count=0;
-int qtd_pontes=0;
+void djkstra(int Grafo[MAX][MAX],int qtd_vertices,int raiz);
 
 int main(){
-    int qtd_vertices, qtd_arestas;
-    int a,b;
-    printf("\nDigite a qtd de vertices e arestas:\n");
-    scanf("%i %i",&qtd_vertices,&qtd_arestas);
-    vertice *vertices=(vertice*)calloc(qtd_vertices+1,sizeof(vertice));
-    printf("\nDigite as conexoes das %i arestas:\n",qtd_arestas);
-    for(int i=0;i<qtd_arestas;i++){
-        scanf("%i %i",&a,&b);
-        vertices[a].lista_adj[vertices[a].tam_lista]=b;
-        vertices[a].tam_lista++;
-        vertices[b].lista_adj[vertices[b].tam_lista]=a;
-        vertices[b].tam_lista++;
-    }
+    int Grafo[MAX][MAX];
+    int qtd_vertices;
+    printf("\nDigite a quantidade de vertices do grafo:\n");
+    scanf("%i",&qtd_vertices);
+    printf("\nDigite agora a matriz de adjancencias:\n");
+    for(int i=0;i<qtd_vertices;i++)
+    for(int j=0;i<qtd_vertices;j++)
+    scanf("%i",&Grafo[i][j]);
+
     printf("\nDigite a raiz do grafo:\n");
     int raiz;
     scanf("%i",&raiz);
-    bridge(vertices,qtd_vertices,raiz,raiz);
-    printf("\nQtd de pontes: %i",qtd_pontes);
+
+    djkstra(Grafo,qtd_vertices,raiz);
 
     return 0;
 }
 
-void bridge(vertice *vertices, int qtd_vertices, int raiz, int pai){
+void djkstra(int Grafo[MAX][MAX], int qtd_vertices,int raiz){
+
+    int custo[MAX][MAX],distancia[MAX],pai[MAX];
+    int visitado[MAX],mindistance,count;
     int filho;
-    vertices[raiz].visitado=1;
-    count++;
-    vertices[raiz].in=count;
-    vertices[raiz].lower=count;
-    for(int i=0;i<vertices[raiz].tam_lista;i++){
-        filho=vertices[raiz].lista_adj[i];
-        if(filho==pai){
-            continue;
+    int i,j;
+
+    for(int i=0;i<qtd_vertices;i++)
+    for(int j=0;i<qtd_vertices;j++)
+    if(Grafo[i][j]==0)
+    custo[i][j]=INFINITY;
+    else
+    custo[i][j]=Grafo[i][j];
+
+    for(i=0;i<qtd_vertices;i++){
+        distancia[i]=custo[raiz][i];
+        pai[i]=raiz;
+        visitado[i]=0;
+    }
+    distancia[raiz]=0;
+    visitado[raiz]=1;
+    count=1;
+    while(count<qtd_vertices-1){
+        mindistance=INFINITY;
+        for(i=0;i<qtd_vertices;i++)
+        if(distancia[i]<mindistance&&!visitado){
+            mindistance=distancia[i];
+            filho=i;
         }
-        else{
-            if(vertices[filho].visitado==1){
-                vertices[raiz].lower=menor(vertices[raiz].lower,vertices[filho].in);
-            }
-            else{
-                bridge(vertices,qtd_vertices,filho,raiz);
-                if(vertices[filho].lower>vertices[raiz].in){
-                    qtd_pontes++;
-                    printf("\nPonte entre %i e %i",raiz,filho);
-                }
-                vertices[raiz].lower=menor(vertices[raiz].lower,vertices[filho].lower);
-            }
+        visitado[filho]=1;
+        for(i=0;i<qtd_vertices;i++)
+        if(!visitado[i])
+        if(mindistance+custo[filho][i]<distancia[i]){
+            distancia[i]=mindistance+custo[filho][i];
+            pai[i]=filho;
         }
+        count++;
+    }
+    for(int i=0;i<qtd_vertices;i++)
+    if(i!=raiz){
+        printf("\nMenor distancia ate o vertice %i= %i",i,distancia[i]);
+        printf("\nCaminho:%i",i);
+        j=i;
+        do{
+            j=pai[j];
+            printf("<-%i",j);
+        }while(j!=raiz);
     }
 }
-
-int menor(int a,int b){a<b? a:b;}

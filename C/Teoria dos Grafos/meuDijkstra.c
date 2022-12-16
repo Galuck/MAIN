@@ -5,7 +5,7 @@
 #define INFINITY 9999
 #define MAX 10
 
-void djkstra(int Grafo[MAX][MAX],int n,int raiz);
+void djkstra(int Grafo[MAX][MAX],int qtd_vertices,int raiz);
 
 int main(){//códio feito por matriz de adjacencia
     int Grafo[MAX][MAX];
@@ -27,20 +27,20 @@ int main(){//códio feito por matriz de adjacencia
     return 0;
 }
 
-void djkstra(int Grafo[MAX][MAX],int n, int raiz){//  'n' é a quantidade de vértices
+void djkstra(int Grafo[MAX][MAX],int qtd_vertices, int raiz){
 
     int custo[MAX][MAX],distancia[MAX],pai[MAX];//distancia e pai estão como vetores porque cada vertice vai ter a sua
-    
+
     int visitado[MAX],count,mindistance,filho;
     int i,j;
-    for(i=0;i<n;i++)
-    for(j=0;j<n;j++)
+    for(i=0;i<qtd_vertices;i++)
+    for(j=0;j<qtd_vertices;j++)
     if(Grafo[i][j]==0)
     custo[i][j]==INFINITY;//se no grafo estiver o valor 0, vai mudar o custo para Infinito
     else
     custo[i][j]==Grafo[i][j];//aqui só vai colocar os valores dos custos do grafo na nova matriz de custos (para cada valor)
 
-    for(i=0;i<n;i++){
+    for(i=0;i<qtd_vertices;i++){
         distancia[i]=custo[raiz][i];
         pai[i]=raiz;
         visitado[i]=0;
@@ -48,24 +48,24 @@ void djkstra(int Grafo[MAX][MAX],int n, int raiz){//  'n' é a quantidade de vé
     distancia[raiz]=0;
     visitado[raiz]=1;
     count=1;
-    while(count<n-1){
+    while(count<qtd_vertices-1){
         mindistance=INFINITY;//deixa a menor distancia como infinito, para atualizar
 
-        for(i=0;i<n;i++)
+        for(i=0;i<qtd_vertices;i++)
         if(distancia[i]<mindistance&&!visitado){
             mindistance=distancia[i];//atualiza a menor distancia de cada vertice
             filho=i;
         }
         visitado[filho]=1;
-        for(i=0;i<n;i++)
+        for(i=0;i<qtd_vertices;i++)
         if(!visitado[i])//se não foi visitado
         if(mindistance+custo[filho][i]<distancia[i]){//verifica qual a menor distancia
-            distancia[i]=mindistance+custo[filho][i];
+            distancia[i]=mindistance+custo[filho][i];//atualiza
             pai[i]=filho;
         }
         count++;
     }
-    for(i=0;i<n;i++)
+    for(i=0;i<qtd_vertices;i++)
     if(i!=raiz){
         printf("\nMenor distancia até o vertice %i= %i",i,distancia[i]);
         printf("\nCaminho:%i",i);
