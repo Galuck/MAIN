@@ -41,8 +41,8 @@ void djkstra(int Grafo[MAX][MAX],int qtd_vertices, int raiz){
     custo[i][j]==Grafo[i][j];//aqui só vai colocar os valores dos custos do grafo na nova matriz de custos (para cada valor)
 
     for(i=0;i<qtd_vertices;i++){
-        distancia[i]=custo[raiz][i];
-        pai[i]=raiz;
+        distancia[i]=custo[raiz][i];//custo[raiz][i] vai pegar o custo da raiz até o vertice i
+        pai[i]=raiz;//inicializando o 'pai' de todo mundo como raiz
         visitado[i]=0;
     }
     distancia[raiz]=0;

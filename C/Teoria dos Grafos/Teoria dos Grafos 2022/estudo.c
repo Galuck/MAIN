@@ -27,12 +27,10 @@ int main(){
 }
 
 void djkstra(int Grafo[MAX][MAX], int qtd_vertices,int raiz){
-
     int custo[MAX][MAX],distancia[MAX],pai[MAX];
     int visitado[MAX],mindistance,count;
     int filho;
     int i,j;
-
     for(int i=0;i<qtd_vertices;i++)
     for(int j=0;i<qtd_vertices;j++)
     if(Grafo[i][j]==0)

@@ -47,8 +47,10 @@
 //D: A
 
 
+
 //Para fazer uma matriz de adjacencia 
-// declarar tamanho da matriz, definir pelo numero de vértices
+// declarar tamanho da matriz, definir pelo numero de vértices      //calcular o numero de vertices pelo input
+
 //tamanho da minha matriz é a quantidade de vertices ao quadrado
 //ler vertice por vértice, não pode repetir, para descobrir a quantidade de vértices
 //declarar vetor grande
@@ -65,7 +67,7 @@
 //Essas structs não representam ordem de conexão, só o que está ligado nela.
 
 
-
+//
 
 
 

@@ -17,7 +17,6 @@ int qtd_pontes=0;
 
 int main(){
 
-    
     int a=0;
     int b=0;
     int qtd_vertices;
