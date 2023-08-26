@@ -58,7 +58,7 @@ int main(int *argc, char *argv[])
 
     printf("\n Quantidade de Componentes Conectados: %d",cc);
 
-    // printf("\n Chamando DFS: ");
+    // printf("\n Chamando DFS: "); (aqui ele tirou a chamada do DFS, se descomentar vai fazer a mesma coisa que dfs)
     // dfs(vertices,1);
 
     printf("\n");

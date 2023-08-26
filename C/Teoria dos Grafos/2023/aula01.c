@@ -63,6 +63,7 @@
 
 
 //PARA FAZER CÓDIGO DE LISTA DE ADJACÊNCIAS, APRENDER LISTA LIGADA E FAZER UMA ESTRUTURA COM NEXT/PROXIMO
+
 //FAZER UM VETOR COM ESSAS STRUCTS
 //Essas structs não representam ordem de conexão, só o que está ligado nela.
 
