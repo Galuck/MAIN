@@ -26,14 +26,27 @@
 //exemplo DFS no github Rambim 2023_2 (contagem_componentes e dfs), e também em 2022_2 dfs
 
 
-
-
-
-
-
-
 ////////////////////BFS (largura)
 //
 // exemplo ilustrado no caderno vermelho
 
+
+
+
+//Para descobrir a quantidade de componentes conectados é preciso fazer a checagem de "quantas vezes eu escolhi a raiz?", porque cada vez que eu escolho a raiz eu estou 
+//escolhendo um componente conectado diferente. (exemplo no caderno vermelho)
+//porem continua sendo um grafo só, só que com componentes conectados diferentes.
+
+//adicionar a qtd de componentes conectados no fim do DFS, um contador pra cada vez que for chamar a raiz.
+
+
+
+
+
+//Ainda no DFS, para detectar ciclos em grafos, é necessário criar um vetor de visitados, onde na chamada recursiva, se coloca um novo parametro int chamado pai.
+//
+//exemplo no caderno vermelho:
+//Para detectar ciclos tem que ter elemento pai na chamada da função de DFS, ( na primeira chamada da função pode botar como NULL sem problema nenhum)
+//(encontrar no processo de busca do DFS um componente visitado que não seja o pai, é um ciclo)
+//*quem define qual aresta vai ser a back edge vai ser a raiz da chamada; já que a ordem altera a backedge
 
