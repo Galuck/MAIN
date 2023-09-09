@@ -84,8 +84,8 @@ int carrega_grafo(vertice *vertices, char *nome_do_arquivo)
             qtd_vertices++;
             qtd_global[b] = 1;
 
-        push(&vertices[a], b);
-        push(&vertices[b], a);
+        push(&vertices[a], b);//na lista de adjacencia do A, coloca o B
+        push(&vertices[b], a);//na lista de adjacencia do B, coloca o A
     }
 
     return qtd_vertices;
@@ -208,10 +208,10 @@ void dfs(vertice * vertices , int x)
     vertices[x].visitado=1;
     printf(" %d",x);
 
-    if (vertices[x].lista_adj==NULL)
+    if (vertices[x].lista_adj==NULL){
         return;
-        
-    aux = vertices[x].lista_adj->inicio;
+    }
+    aux = vertices[x].lista_adj->inicio;//aponta para o inicio da lista de adjacencia daquele vertice
 
     while(aux!=NULL)
     {
@@ -219,7 +219,7 @@ void dfs(vertice * vertices , int x)
         {
             dfs(vertices,aux->valor); 
         }
-        aux = aux->prox;
+        aux = aux->prox;//segue a lista
     }
 
 }

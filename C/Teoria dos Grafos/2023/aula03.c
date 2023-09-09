@@ -44,3 +44,9 @@
 //percorrer lista de adjacencia inteira antes de ir pro próximo (diferente do BFS que vai pulando de lista em lista)
 //enquanto percorre a lista, vai colocando os itens na fila
 //incluir todos os não visitados na fila enquanto percorre a lista de adjacência da Raiz
+
+
+//AQUELE EXERCÍCIO VAI CAIR NA PROVA (FIRESCAPE)
+
+//quantos componentes conectados.
+//"sobrou algum vértice que ainda não foi visitado? se sim, chamar dfs dnv e adicionar a qtd de componentes conectados"

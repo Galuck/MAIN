@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 int qtd_global[10001];
-int qtd_arestas=0;
 
 typedef struct vertice
 {
@@ -35,20 +34,25 @@ int main(int *argc, char *argv[])
 {
     int cc=0;
     vertice *vertices;
-    int qtd_vertices;
+    int qtd_vertices, qtd_arestas;
 
     //printf(" Parametro recebido: %s", argv[1]); //argv[1] é o nome do arquivo que vai ser lido (parada estranha que o professor fez)
 
     vertices = (vertice *)calloc(10000, sizeof(vertice));
 
-    qtd_vertices = carrega_grafo(vertices, "D:/DOCUMENTOS/FACULDADE/Git/MAIN/C/Teoria dos Grafos/2023/input_grafo.txt");
-    if (qtd_vertices)
+    printf("\nDigite a quantidade de Vertices e Arestas:\n");
+    scanf("%d %d", &qtd_vertices, &qtd_arestas);
+
+
+    for(int i=1;i<=qtd_arestas;i++)
     {
-        printf("\n Grafo carregado com sucesso qtd vertices: %d",qtd_vertices);
-        mostrar_lista_dos_vertices(vertices, 10001);//mudar o 10001 para qtd_arestas
+        int a, b;
+        printf("\n A: %d B: %d", a, b);
+
+        push(&vertices[a], b);
+        push(&vertices[b], a);
+        
     }
-    else
-        printf("\n Problema no carregamento do grafo");
 
     for(int i=1;i<=qtd_vertices;i++)
     {
@@ -60,6 +64,7 @@ int main(int *argc, char *argv[])
         }
     }
 
+
     printf("\n Quantidade de Componentes Conectados: %d",cc);
 
     // printf("\n Chamando DFS: "); // (aqui ele tirou a chamada do DFS, se descomentar vai fazer a mesma coisa que dfs)
@@ -67,48 +72,6 @@ int main(int *argc, char *argv[])
 
     printf("\n");
     return 0;
-}
-
-int carrega_grafo(vertice *vertices, char *nome_do_arquivo)
-{
-    FILE *arq;
-
-    arq = fopen(nome_do_arquivo, "r");//nome do arquivo
-    int a, b;
-    int qtd_vertices=0;
-
-    int i;
-
-    for(i=0;i<10001;i++)
-    {
-        qtd_global[i] =0;
-    }
-
-    if (arq == NULL)
-    {
-        printf("\n Arquivo nao localizado");
-        return 0;
-    }
-
-    while (fscanf(arq, "%d;%d\n", &a, &b) != EOF)
-    {
-        printf("\n A: %d B: %d", a, b);
-
-        if (qtd_global[a]==0){
-            qtd_vertices++;
-            qtd_global[a] = 1;
-        }
-        if (qtd_global[b]==0){
-            qtd_vertices++;
-            qtd_global[b] = 1;
-        }
-        push(&vertices[a], b);
-        push(&vertices[b], a);
-        qtd_arestas++;
-        //printf("\n QTD ARESTAS: %d",qtd_arestas);
-    }
-
-    return qtd_vertices;
 }
 
 void push(vertice *v, int x)
