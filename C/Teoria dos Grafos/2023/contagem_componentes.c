@@ -30,13 +30,12 @@ void push(vertice *v, int x);
 void mostrar_lista_dos_vertices(vertice *v, int tam);
 void dfs(vertice * vertices , int x);
 
-int main(int *argc, char *argv[])
+
+int main()
 {
     int cc=0;
     vertice *vertices;
     int qtd_vertices, qtd_arestas;
-
-    //printf(" Parametro recebido: %s", argv[1]); //argv[1] é o nome do arquivo que vai ser lido (parada estranha que o professor fez)
 
     vertices = (vertice *)calloc(10000, sizeof(vertice));
 
@@ -66,9 +65,6 @@ int main(int *argc, char *argv[])
 
 
     printf("\n Quantidade de Componentes Conectados: %d",cc);
-
-    // printf("\n Chamando DFS: "); // (aqui ele tirou a chamada do DFS, se descomentar vai fazer a mesma coisa que dfs)
-    // dfs(vertices,1);
 
     printf("\n");
     return 0;
@@ -192,9 +188,9 @@ void dfs(vertice * vertices , int x)
     vertices[x].visitado=1;
     printf(" %d",x);
 
-    if (vertices[x].lista_adj==NULL)
+    if (vertices[x].lista_adj==NULL){
         return;
-        
+    } 
     aux = vertices[x].lista_adj->inicio;
 
     while(aux!=NULL)
