@@ -23,7 +23,7 @@
 
 //PS: a raiz pode ser QUALQUER vertice.
 
-//exemplo DFS no github Rambim 2023_2 (contagem_componentes e dfs), e também em 2022_2 dfs
+//exemplo DFS no github Rambim 2023_2 (contagem_componentes e dfs), e também em 2022_2 dfs  
 
 
 ////////////////////BFS (largura)
