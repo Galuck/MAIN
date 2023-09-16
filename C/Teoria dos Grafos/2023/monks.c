@@ -1,33 +1,19 @@
-// Professor Hopper is researching the sexual behavior of a rare species of bugs. He assumes that they feature two different genders and that they only interact with bugs of the opposite gender. 
-//In his experiment, individual bugs and their interactions were easy to identify, because numbers were printed on their backs.
+// Monk visits the land of Islands. There are a total of N islands numbered from 1 to N. Some pairs of islands are connected to each other by Bidirectional bridges running over water.
+// Monk hates to cross these bridges as they require a lot of efforts. He is standing at Island #1 and wants to reach the Island #N. Find the minimum the number of bridges that he shall have to cross, if he takes the optimal route.
 
-// Given a list of bug interactions, decide whether the experiment supports his assumption of two genders with no homosexual bugs or if it contains some bug interactions that falsify it.
-
-// Input
-// The first line of the input contains the number of scenarios. 
-//Each scenario starts with one line giving the number of bugs (at least one, and up to 2000) and the number of interactions (up to 1000000) separated by a single space. 
-//In the following lines, each interaction is given in the form of two distinct bug numbers separated by a single space. Bugs are numbered consecutively starting from one.
-
-// Output
-// The output for every scenario is a line containing “Scenario #i:”, where i is the number of the scenario starting at 1, followed by one line saying either “No suspicious bugs found!” 
-//if the experiment is consistent with his assumption about the bugs’ sexual behavior, or “Suspicious bugs found!” if Professor Hopper’s assumption is definitely wrong.
-
-// Example
 // Input:
-// 2
-// 3 3
-// 1 2
-// 2 3
-// 1 3
-// 4 2
-// 1 2
-// 3 4
+// First line contains T. T testcases follow.
+// First line of each test case contains two space-separated integers N, M.
+// Each of the next M lines contains two space-separated integers X and Y , denoting that there is a bridge between Island X and Island Y.
 
 // Output:
-// Scenario #1:
-// Suspicious bugs found!
-// Scenario #2:
-// No suspicious bugs found!
+// Print the answer to each test case in a new line.
+
+// Constraints:
+// 1 ≤ T ≤ 10
+// 1 ≤ N ≤ 104
+// 1 ≤ M ≤ 105
+// 1 ≤ X, Y ≤ N
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -35,7 +21,7 @@
 typedef struct vertice
 {
     int visitado;
-    int cor;
+    int distancia;
     struct lista *lista_adj;
 
 } vertice;
@@ -44,6 +30,7 @@ typedef struct lista
 {
     int qtd;
     struct registro *inicio;
+    struct registro *ultimo;
 
 } lista;
 
@@ -58,7 +45,7 @@ registro *aloca_registro();
 lista *aloca_lista();
 int incluir_lista(lista *l, int x);
 void push(vertice *v, int x);
-int dfs(vertice * vertices , int raiz, int cor);
+int dfs(vertice * vertices , int raiz, int );
 void liberarGrafo(vertice *vertices, int numVertices);
 
 int main()/////////////GABRIEL MAY PROCHNOW//2122082032
@@ -116,6 +103,14 @@ int main()/////////////GABRIEL MAY PROCHNOW//2122082032
             vertices = (vertice *)calloc(2001, sizeof(vertice));
             scanf("%d %d", &qtd_vertices, &qtd_arestas);
         }
+
+
+        bfs(vertices, 6);
+
+    for(i=1;i<=qtd_vertices;i++)
+    {
+        printf("\n Distancia do vertice %d para a raiz %d = %d",i,raiz,vertices[i].distancia);
+    }
 
     }
 
@@ -250,4 +245,81 @@ int incluir_lista(lista *l, int x)
     l->qtd++;
     return 1;
 }
- 
+
+//
+
+void insert_queue(lista *f, int x)
+{
+    registro *novo;
+    novo = (registro *)calloc(1, sizeof(registro));
+    novo->valor = x;
+
+    if (f->tam == 0)
+    {
+        f->inicio = novo;
+        f->ultimo = novo;
+    }
+    else
+    {
+        f->ultimo->prox = novo;
+        f->ultimo = novo;
+    }
+    f->tam++;
+}
+
+int pop_queue(lista *f)
+{
+    if (is_empty(f))
+    {
+        return -1;
+    }
+    else
+    {
+        int retorno;
+        retorno = f->inicio->valor;
+        f->inicio = f->inicio->prox;
+        f->tam--;
+        return retorno;
+    }
+}
+
+int is_empty(lista *f)
+{
+    if (f->tam == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+void bfs(vertice *vertices, int raiz)
+{
+    lista *f;
+    f = calloc(1, sizeof(lista));
+    int current;
+    int i, filho;
+
+    insert_queue(f, raiz);
+
+    while (!is_empty(f))
+    {
+        current = pop_queue(f);
+        if (vertices[current].visitado == 0)
+        {
+            printf(" %d", current);
+        }
+        vertices[current].visitado = 1;
+        for (i = 0; i < vertices[current].tam_lista_adj; i++)
+        {
+            filho = vertices[current].lista_adj[i];
+            if (vertices[filho].visitado == 0)
+            {
+                vertices[filho].distancia = vertices[current].distancia + 1;
+                insert_queue(f, filho);
+            }
+        }
+    }
+}
