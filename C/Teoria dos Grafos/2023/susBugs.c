@@ -238,7 +238,7 @@ int incluir_lista(lista *l, int x)
                 }
 
                 novo->prox = aux;
-                inserido = 1;
+                inserido = 1; 
             }
         }
         if (!inserido)
