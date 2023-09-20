@@ -1,140 +1,77 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int qtd_global[10001];
+#define MOD 1000000007
 
-typedef struct vertice
-{
+typedef struct vertice {
     int visitado;
+    long long tamanho;
     struct lista *lista_adj;
 } vertice;
 
-typedef struct lista
-{
-    int qtd;
-    struct registro *inicio;
-} lista;
-
-typedef struct registro
-{
+typedef struct registro {
     int valor;
     struct registro *prox;
 } registro;
 
-void mostrar_lista(lista *l);
-int incluir_ordenado_lista(lista *l, int x);
-registro *aloca_registro();
-lista *aloca_lista();
-int carrega_grafo(vertice *vertices, char *nome_do_arquivo);
-void push(vertice *v, int x);
-void mostrar_lista_dos_vertices(vertice *v, int tam);
-void dfs(vertice * vertices , int x);
+typedef struct lista {
+    int qtd;
+    struct registro *inicio;
+} lista;
 
-
-int main()
-{
-    int cc=0;
-    vertice *vertices;
-    int qtd_vertices, qtd_arestas;
-
-    vertices = (vertice *)calloc(10000, sizeof(vertice));
-
-    printf("\nDigite a quantidade de Vertices e Arestas:\n");
-    scanf("%d %d", &qtd_vertices, &qtd_arestas);
-
-
-    for(int i=1;i<=qtd_arestas;i++)
-    {
-        int a, b;
-        printf("\n A: %d B: %d", a, b);
-
-        push(&vertices[a], b);
-        push(&vertices[b], a);
-        
-    }
-
-    for(int i=1;i<=qtd_vertices;i++)
-    {
-        if (vertices[i].visitado ==0)
-        {
-            cc++;
-            
-            dfs(vertices,i);
-        }
-    }
-
-
-    printf("\n Quantidade de Componentes Conectados: %d",cc);
-
-    printf("\n");
-    return 0;
+registro *aloca_registro() {
+    registro *novo = (registro *)malloc(sizeof(registro));
+    return novo;
 }
 
-void push(vertice *v, int x)
-{
-    if (v->lista_adj == NULL){
+lista *aloca_lista() {
+    lista *novo = (lista *)malloc(sizeof(lista));
+    novo->qtd = 0;
+    novo->inicio = NULL;
+    return novo;
+}
+
+void push(vertice *v, int x) {
+    if (v->lista_adj == NULL) {
         v->lista_adj = aloca_lista();
     }
-    incluir_ordenado_lista(v->lista_adj, x);
+    incluir_lista(v->lista_adj, x);
 }
 
-lista *aloca_lista()
-{
-    lista *novo;
-    novo = (lista *)calloc(1, sizeof(lista));
-    return novo;
-}
-
-registro *aloca_registro()
-{
-    registro *novo;
-    novo = (registro *)calloc(1, sizeof(registro));
-    return novo;
-}
-
-int incluir_ordenado_lista(lista *l, int x)
-{
-    if (l == NULL)
+int incluir_lista(lista *l, int x) {
+    if (l == NULL) {
         return 0;
+    }
 
     registro *novo, *aux = NULL, *ant = NULL;
     novo = aloca_registro();
     novo->valor = x;
 
-    if (l->inicio == NULL)
-    {
+    if (l->inicio == NULL) {
         l->inicio = novo;
-    }
-    else
-    {
+    } else {
         int inserido = 0;
         aux = l->inicio;
-        while (aux != NULL && !inserido)
-        {
-
-            if (aux->valor == novo->valor)
-            {
+        while (aux != NULL && !inserido) {
+            if (aux->valor == novo->valor) {
                 return 0;
             }
 
-            if (aux->valor < novo->valor)
-            {
+            if (aux->valor < novo->valor) {
                 ant = aux;
                 aux = aux->prox;
-            }
-            else
-            {
-                if (ant == NULL)
+            } else {
+                if (ant == NULL) {
                     l->inicio = novo;
-                else
+                } else {
                     ant->prox = novo;
+                }
 
                 novo->prox = aux;
                 inserido = 1;
             }
         }
-        if (!inserido)
-        {
+        if (!inserido) {
             ant->prox = novo;
             inserido = 1;
         }
@@ -143,63 +80,56 @@ int incluir_ordenado_lista(lista *l, int x)
     return 1;
 }
 
-void mostrar_lista_dos_vertices(vertice *v, int tam)
-{
-    int i;
+void dfs(vertice *vertices, int raiz, long long *tamanho) {
+    vertices[raiz].visitado = 1;
+    (*tamanho)++;
 
-    for (i = 0; i < tam; i++)
-    {
-        if (v[i].lista_adj != NULL)
-        {
-            printf("\n Lista de Adjacencias do no : %d", i);
-            mostrar_lista(v[i].lista_adj);
-        }
-    }
-}
-
-void mostrar_lista(lista *l)
-{
     registro *aux;
-
-    if (l == NULL)
-    {
-        printf("\n Lista nula");
+    if (vertices[raiz].lista_adj == NULL) {
         return;
     }
 
-    if (l->inicio == NULL)
-    {
-        printf("\n Lista vazia");
-        return;
-    }
+    aux = vertices[raiz].lista_adj->inicio;
 
-    aux = l->inicio;
-    while (aux != NULL)
-    {
-        printf("\n -> %d", aux->valor);
+    while (aux != NULL) {
+        if (vertices[aux->valor].visitado == 0) {
+            dfs(vertices, aux->valor, tamanho);
+        }
         aux = aux->prox;
     }
 }
 
+int main() {
+    int casos_de_teste;
+    scanf("%d", &casos_de_teste);
 
-void dfs(vertice * vertices , int x)
-{
-    registro * aux;
-    vertices[x].visitado=1;
-    printf(" %d",x);
+    while (casos_de_teste--) {
+        int qtd_vertices, qtd_arestas;
+        scanf("%d %d", &qtd_vertices, &qtd_arestas);
 
-    if (vertices[x].lista_adj==NULL){
-        return;
-    } 
-    aux = vertices[x].lista_adj->inicio;
+        vertice *vertices = (vertice *)calloc(qtd_vertices + 1, sizeof(vertice));
+        long long componentes = 0;
+        long long total_tamanho = 1;
 
-    while(aux!=NULL)
-    {
-        if (vertices[aux->valor].visitado==0)
-        {
-            dfs(vertices,aux->valor); 
+        for (int i = 0; i < qtd_arestas; i++) {
+            int a, b;
+            scanf("%d %d", &a, &b);
+            push(&vertices[a], b);
+            push(&vertices[b], a);
         }
-        aux = aux->prox;
+
+        for (int i = 1; i <= qtd_vertices; i++) {
+            if (vertices[i].visitado == 0) {
+                long long tamanho = 0;
+                dfs(vertices, i, &tamanho);
+                componentes++;
+                total_tamanho = (total_tamanho * tamanho) % MOD;
+            }
+        }
+
+        printf("%lld %lld\n", componentes, total_tamanho);
+        free(vertices);
     }
 
+    return 0;
 }

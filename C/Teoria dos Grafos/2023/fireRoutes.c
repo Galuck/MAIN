@@ -2,10 +2,6 @@
 #include <stdio.h>
 
 // Tem 'N' funcionários no prédio, e cada um trabalha numa cabine separada (1 até N)
-// (construir múltiplas rotas de fuga) (componentes conectados?)
-//
-
-
 
 
 /////////////////////////////
@@ -199,7 +195,7 @@ void liberarGrafo(vertice *vertices, int numVertices) {
 
 void dfs(vertice *vertice, int raiz){
     vertice[raiz].visitado = 1;
-    printf("\nVisitando o vertice %d", raiz);
+    //printf("\nVisitando o vertice %d", raiz);
 
     registro *aux;
     if(vertice[raiz].lista_adj==NULL){
