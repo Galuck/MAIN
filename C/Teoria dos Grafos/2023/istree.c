@@ -118,16 +118,14 @@ int dfs(vertice *vertices, int raiz, int pai) {
 
   while (aux != NULL) // percorrendo a lista de adjacência
   {
-    if (vertices[aux->valor].visitado ==
-        0) // se o vértice ainda não foi visitado, vai pra lista de adjacência
+    if (vertices[aux->valor].visitado == 0) // se o vértice ainda não foi visitado, vai pra lista de adjacência
            // dele numa pilha de recursividade
     {
-      dfs(vertices, aux->valor, raiz); // multiplicar por -1 para mudar a cor
+      dfs(vertices, aux->valor, raiz);
       // isso aqui vai criar uma pilha de recursividadde, e vai voltar a
       // recursividade um por um
 
-    } else if (aux->valor != pai && pai != 0) { // se o vértice já foi visitado e a cor dele é igual
-    //                                             a cor do vértice pai, o grafo n é bipartido
+    } else if (aux->valor != pai && pai != 0) {
       // printf("Existe ciclo!");
       // printf("\n Back Edge %d -> %d", x, aux->valor);
       return 1;

@@ -20,6 +20,7 @@
 // 2 3
 // 1 3
 // 4 2
+
 // 1 2
 // 3 4
 
@@ -114,7 +115,7 @@ int main()/////////////GABRIEL MAY PROCHNOW//2122082032
         if (casos_de_teste > 0) {
             // Alocar memória novamente para o próximo caso de teste
             vertices = (vertice *)calloc(2001, sizeof(vertice));
-            scanf("%d %d", &qtd_vertices, &qtd_arestas);
+            //scanf("%d %d", &qtd_vertices, &qtd_arestas);
         }
 
     }

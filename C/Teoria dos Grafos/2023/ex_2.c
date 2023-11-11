@@ -1,68 +1,40 @@
-// Monk visits the land of Islands. There are a total of N islands numbered from 1 to N. Some pairs of islands are connected to each other by Bidirectional bridges running over water.
-// Monk hates to cross these bridges as they require a lot of efforts. He is standing at Island #1 and wants to reach the Island #N. Find the minimum the number of bridges that he shall have to cross, if he takes the optimal route.
-
-// Input:
-// First line contains T. T testcases follow.
-// First line of each test case contains two space-separated integers N, M.
-// Each of the next M lines contains two space-separated integers X and Y , denoting that there is a bridge between Island X and Island Y.
-
-// Output:
-// Print the answer to each test case in a new line.
-
-// Constraints:
-// 1 ≤ T ≤ 10
-// 1 ≤ N ≤ 104
-// 1 ≤ M ≤ 105
-// 1 ≤ X, Y ≤ N
-
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef struct vertice{
-
     int visitado;
     int distancia;
     struct lista *lista_adj;
-
 }vertice;
 
 typedef struct fila{
-
     int tam;
     struct registro *inicio;
     struct registro *fim;
-
 }fila;
 
 typedef struct lista{
-
     int qtd;
     struct registro *inicio;
-
 }lista;
 
 typedef struct registro{
-
     int valor;
     struct registro *proximo;
-
 }registro;
 
 int bfs(vertice *v, int raiz, int qtd_vertices);
 fila *aloca_Fila();
 lista *aloca_Lista();
 registro *aloca_Registro();
-int incluir_lista(lista *l, int x);
+int incluiLista(lista *l, int valor_inserido);
 void push(vertice *v, int valor);
-void push_FilaBFS(fila *f, int x);
-int pop_FilaBFS(fila *f);
+void colocaFila(fila *minhaFila, int elemento);
+int tiraFila(fila *minhaFila);
 
 int main(){
-    
-    int qtd_vertices;
-    int qtd_arestas;
-    int i;//trauma isso aqui
-    int a,b;
+    int qtd_vertices, qtd_arestas;
+    int i, a, b;
     int qtd_casos=0;
     vertice *vertices;
 
@@ -70,7 +42,7 @@ int main(){
 
     while(qtd_casos--){
         scanf("%d %d", &qtd_vertices, &qtd_arestas);
-        vertices= (vertice *)calloc(10001, sizeof(vertice));
+        vertices= (vertice *)calloc(10000, sizeof(vertice));
 
         for(i=0; i< qtd_arestas; i++){
             scanf("%d %d", &a, &b);
@@ -82,8 +54,6 @@ int main(){
     }
     return 0;
 }
-
-///////////////////////////////////////
 
 fila *aloca_Fila(){
     fila *novo;
@@ -103,10 +73,9 @@ registro *aloca_Registro(){
     return novo;
 }
 
-int incluir_lista(lista *l, int x){
-
+int incluiLista(lista *l, int valor_inserido){
     registro *novo= aloca_Registro();
-    novo->valor= x;
+    novo->valor= valor_inserido;
     novo->proximo=NULL;
 
     if(l->inicio==NULL){
@@ -127,49 +96,40 @@ int incluir_lista(lista *l, int x){
 }
 
 void push(vertice *v, int valor){
-
     if(v->lista_adj==NULL){
         v->lista_adj= aloca_Lista();
     }
-    incluir_lista(v->lista_adj, valor);
+    incluiLista(v->lista_adj, valor);
 }
 
-int pop_FilaBFS(fila *f){
+void colocaFila(fila *minhaFila, int elemento){
+    registro *novoRegistro= aloca_Registro();
+    novoRegistro->valor= elemento;
 
-    int aux;
-    aux= f->inicio->valor;
-    f->inicio=f->inicio->proximo;
-    f->tam--;
-
-    return aux;
-}
-
-void push_FilaBFS(fila *f, int x){
-
-    registro *novo= aloca_Registro();
-    novo->valor= x;
-
-    if(f->inicio==NULL){
-
-        f->inicio=novo;
-        f->fim=novo;
-        f->tam++;
+    if(minhaFila->inicio==NULL){
+        minhaFila->inicio=novoRegistro;
+        minhaFila->fim=novoRegistro;
+        minhaFila->tam++;
         return;
     }
 
-    f->fim->proximo= novo;
-    f->fim= novo;
-    f->tam++;
-
+    minhaFila->fim->proximo= novoRegistro;
+    minhaFila->fim= novoRegistro;
+    minhaFila->tam++;
 }
 
-////////////////////////////////////////////////
+int tiraFila(fila *minhaFila){
+    int retorno;
+    retorno= minhaFila->inicio->valor;
+    minhaFila->inicio=minhaFila->inicio->proximo;
+    minhaFila->tam--;
+
+    return retorno;
+}
 
 int bfs(vertice *v, int raiz, int qtd_vertices){
-
-    fila *f= aloca_Fila();
-
-    int atual;
+    fila *minhaFila= aloca_Fila();
+    int current;
     registro *aux;
 
     for(int i=0; i<qtd_vertices; i++){
@@ -177,24 +137,22 @@ int bfs(vertice *v, int raiz, int qtd_vertices){
         v[i].distancia=-1;
     }
 
-    push_FilaBFS(f, raiz);
+    colocaFila(minhaFila, raiz);
     v[raiz].visitado=1;
     v[raiz].distancia=0;
 
-    while(f->tam>0){
-
-        atual= pop_FilaBFS(f);
-        aux= v[atual].lista_adj->inicio;
+    while(minhaFila->tam>0){
+        current= tiraFila(minhaFila);
+        aux= v[current].lista_adj->inicio;
 
         while(aux!= NULL){
             if(v[aux->valor].visitado==0){
                 v[aux->valor].visitado=1;
-                push_FilaBFS(f,aux->valor);
-                v[aux->valor].distancia= v[atual].distancia + 1;
+                colocaFila(minhaFila,aux->valor);
+                v[aux->valor].distancia= v[current].distancia + 1;
             }
             aux=aux->proximo;
         }
-
     }
     return v[qtd_vertices].distancia;
 }

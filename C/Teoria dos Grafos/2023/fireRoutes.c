@@ -1,8 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// Tem 'N' funcionários no prédio, e cada um trabalha numa cabine separada (1 até N)
-
+//for every escape route, one of the employees using that route needs to be appointed as the fire drill captain (raiz)
 
 /////////////////////////////
 typedef struct vertice{
@@ -28,7 +27,7 @@ registro *aloca_registro();
 lista *aloca_lista();
 int incluir_lista(lista *l, int x);
 void push(vertice *v, int x);
-void dfs(vertice * vertices , int raiz);
+void dfs(vertice * vertices , int raiz, int *size);
 void liberarGrafo(vertice *vertices, int numVertices);
 /////////////////////////////////////////////////
 
@@ -59,18 +58,22 @@ int main(){
         }
 
         int componentes_conectados=0;
-        
+        long long capitaes=1;
+
         for(int i=1;i<=qtd_vertices;i++)
         {
+            
             if (vertices[i].visitado ==0)
             {
+                int size=0;
+                dfs(vertices,i, &size);
                 componentes_conectados++;
-                
-                dfs(vertices,i);
+                capitaes = (capitaes * size) % 1000000007;
             }
+            
         }
 
-        printf("\nTem %d componentes conectados nesse grafo!", componentes_conectados);
+        printf("\n%d Rotas de incendio, %d Possibilidades de capitao", componentes_conectados, (int)capitaes);
 
         casos_de_teste--;
 
@@ -79,34 +82,30 @@ int main(){
 
         if (casos_de_teste > 0) {
             // Alocar memória novamente para o próximo caso de teste
-            vertices = (vertice *)calloc(2001, sizeof(vertice));
-            scanf("%d %d", &qtd_vertices, &qtd_arestas);
+            vertices = (vertice *)calloc(10001, sizeof(vertice));
         }
 
     }
 
-    
-    
-
+    printf("\n");
     return 0;
 }
 
-
-/////////////////////////////
-lista *aloca_lista(){
-    lista *novo = (lista *)malloc(sizeof(lista));
+///////////////////////////////////////Alocações
+lista *aloca_lista()
+{
+    lista *novo = (lista *)calloc(1, sizeof(lista));
     novo->qtd = 0;
     novo->inicio = NULL;
     return novo;
 }
 
-registro *aloca_registro(){
-    registro *novo = (registro *)malloc(sizeof(registro));
+registro *aloca_registro()
+{
+    registro *novo = (registro *)calloc(1, sizeof(registro));
     return novo;
 }
-///////////////////////////////////////Alocações
-
-
+/////////////////////////////////////
 
 
 ///Incluir no grafo
@@ -115,7 +114,7 @@ void push(vertice *v, int x)
     if (v->lista_adj == NULL){
         v->lista_adj = aloca_lista();
     }
-    incluir_lista(v->lista_adj, x);
+    incluir_lista(v->lista_adj, x);//incluir na lista de 
 }
 
 int incluir_lista(lista *l, int x)
@@ -130,35 +129,35 @@ int incluir_lista(lista *l, int x)
 
     if (l->inicio == NULL)
     {
-        l->inicio = novo;
+        l->inicio = novo;//se a lista estiver vazia, o inicio vai ser o novo
     }
     else
     {
         int inserido = 0;
-        aux = l->inicio;
-        while (aux != NULL && !inserido)
+        aux = l->inicio;//aux vai virar o inicio da lista para percorrer
+        while (aux != NULL && !inserido)//enquanto aux nao for nulo e nao tiver inserido na lista, continua (para poder adicionar no final da lista)
         {
-            if (aux->valor == novo->valor)
+            if (aux->valor == novo->valor)//se o valor que eu quero inserir ja estiver na lista, retorna 0
             {
                 return 0;
             }
 
-            if (aux->valor < novo->valor)
+            if (aux->valor < novo->valor)//se o valor que eu quero inserir for maior que o valor que eu estou olhando, eu vou andar na lista (para deixar em ordem crescente)
             {
                 ant = aux;
                 aux = aux->prox;
             }
             else
             {
-                if (ant == NULL){
+                if (ant == NULL){//se o anterior for nulo, o inicio vai ser o novo valor
                     l->inicio = novo;
                 }
                     
-                else{
+                else{//se nao, o anterior vai apontar para o novo valor
                     ant->prox = novo;
                 }
 
-                novo->prox = aux;
+                novo->prox = aux;//percorre a lista
                 inserido = 1; 
             }
         }
@@ -174,27 +173,25 @@ int incluir_lista(lista *l, int x)
 
 
 void liberarGrafo(vertice *vertices, int numVertices) {
-
-    for (int i = 1; i <= numVertices; i++) {//percorrer todos os vértices
-
-        lista *listaAdj = vertices[i].lista_adj;//pegar a lista de adjacência do vértice i
-        registro *atual = listaAdj->inicio;//pegar o primeiro registro dessa lista de adjacência
-
-        while (atual != NULL) {//percorrer tudo até achar um NULL
-
-            registro *proximo = atual->prox;//percorre
-            free(atual);//dar free em todos os registros da lista de adjacência do vértice i
-            atual = proximo;
-
+    for (int i = 0; i < numVertices; i++) {
+        if (vertices[i].lista_adj != NULL) {
+            registro *atual = vertices[i].lista_adj->inicio;
+            while (atual != NULL) {
+                registro *proximo = atual->prox;
+                free(atual);
+                atual = proximo;
+            }
+            free(vertices[i].lista_adj);
         }
-        free(listaAdj);//dar free na lista de adjacência desse vértice do for
     }
-    free(vertices);//termina de liberar tudo
+    free(vertices);
 }
 
 
-void dfs(vertice *vertice, int raiz){
+
+void dfs(vertice *vertice, int raiz, int *size){
     vertice[raiz].visitado = 1;
+    (*size)++;
     //printf("\nVisitando o vertice %d", raiz);
 
     registro *aux;
@@ -208,7 +205,7 @@ void dfs(vertice *vertice, int raiz){
     while(aux!=NULL){
 
         if(vertice[aux->valor].visitado==0){
-            dfs(vertice,aux->valor);
+            dfs(vertice,aux->valor,size);
         }
 
         aux=aux->prox;//aux vai ir passando de um por um dentro da lista de adjacência

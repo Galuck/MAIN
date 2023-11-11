@@ -1,162 +1,105 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct vertice
+{
+    int visitado;
+    int cor;
+    struct lista *lista_adj;
 
-//
-int qtd_global[10001];
-int qtd_arestas;
+} vertice;
 
 typedef struct lista
 {
-    int qtd;//quantidade de elementos na lista
-    struct registro *inicio;//ponteiro para o inicio da lista
+    int qtd;
+    struct registro *inicio;
+
 } lista;
 
-
-typedef struct registro//estrutura pra usar nos Index
+typedef struct registro
 {
-    int valor;//valor do elemento no vertice
-    struct registro *prox;//ponteiro para o proximo elemento
+    int valor;
+    struct registro *prox;
+
 } registro;
 
-
-typedef struct vertice
-{
-    int visitado;//verificar se o vertice ja foi visitado
-    struct lista *lista_adj;//lista de adjacencia desse vértice em questão. Aqui vai armazenar os outros vértices que ele está ligado
-} vertice;
-
-
-
-
-
-
-///Funções feitas pelo professor
-void mostrar_lista(lista *l);
-int incluir_ordenado_lista(lista *l, int x);
 registro *aloca_registro();
 lista *aloca_lista();
-int carrega_grafo(vertice *vertices);
+
+int dfs(vertice * vertices , int raiz, int cor);
+
 void push(vertice *v, int x);
-void mostrar_lista_dos_vertices(vertice *v, int tam);
+int incluir_lista(lista *l, int x);
+void liberarGrafo(vertice *vertices, int numVertices);
 
-
-
-
-void dfs(vertice * vertices , int x);
-
-//declaração das funções
-
-
-
-
-int main (int *argc, char *argv[]){
-
-    int cc=0;
-
-    printf("\n Digite a quantidade de arestas/conexoes: ");
-    scanf("%i", &qtd_arestas);
+int main()/////////////GABRIEL MAY PROCHNOW//2122082032
+{
 
     vertice *vertices;
-    vertices = (vertice *)calloc(10000, sizeof(vertice));
+    int qtd_vertices;
+    int qtd_arestas;
+    int casos_de_teste=0;
+    int counter=0;
 
-    int qtd_vertices; 
-    qtd_vertices = carrega_grafo(vertices);
+    vertices = (vertice *)calloc(2001, sizeof(vertice));
 
-    int x, y;
 
-    for(int i=1;i<=qtd_vertices;i++)
-    {
-        if (vertices[i].visitado ==0)
+    //printf("\nDigite a quantidade de Casos de Teste:\n");
+    scanf("%d", &casos_de_teste);
+
+    //printf("\nDigite a quantidade de Vertices e Arestas:\n");
+    scanf("%d %d", &qtd_vertices, &qtd_arestas);
+
+    while(casos_de_teste!=0){
+
+        for(int i=1;i<=qtd_arestas;i++)
         {
-            cc++;
+            int a, b;
+            scanf("%d %d", &a, &b);
+            push(&vertices[a], b);
+            push(&vertices[b], a);
             
-            dfs(vertices,i);
         }
-    }
 
-    printf("\n Quantidade de Componentes Conectados: %d",cc);
+        counter++;
 
-    mostrar_lista_dos_vertices(vertices, qtd_arestas);
-
-    // printf("\n Digite as %i conexoes de vertices: ");
-    // for(int i=0; i<qtd_arestas; i++){
-    //     scanf("%i %i", &x, &y);
+        printf("Scenario #%d:\n",counter);
         
-    //     //add vertice
-    //     add_vertice(vertices, x);
-    //     qtd_vertices++;
+        for(int i=1;i<=qtd_vertices;i++){//percorrer o vetor de vertices mudando a raiz toda vez para ter certeza que não falta nenhum vértice
+            if(dfs(vertices,i,1)==1){
+                printf("Suspicious bugs found!\n");
+                break;
+            }else{
+                printf("No suspicious bugs found!\n");
+                break;
+            }
+            //ex: Vermelho: 1
+            //    Azul: -1
+        }
 
+        casos_de_teste--;
 
-    //     //add vertice
-    //     add_vertice(vertices, y);
-    //     qtd_vertices++;
+        // Libere a memória alocada para o grafo antes de alocar novamente para o próximo caso de teste
+        liberarGrafo(vertices, qtd_vertices);
 
-    // }
+        if (casos_de_teste > 0) {
+            // Alocar memória novamente para o próximo caso de teste
+            vertices = (vertice *)calloc(2001, sizeof(vertice));
+            scanf("%d %d", &qtd_vertices, &qtd_arestas);
+        }
 
-    
+    }
+
+    printf("\n");
     return 0;
-}
-
-add_vertice(vertice *vertices, int x){
-    //add vertice1
-    
-    if(vertices->lista_adj == NULL){
-        vertices->lista_adj = (lista*)malloc(sizeof(lista));
-    }
-
-
-
-
-}
-
-
-//funções feitas pelo professor
-int carrega_grafo(vertice *vertices)
-{
-    FILE *arq;
-    arq = fopen("D:/DOCUMENTOS/FACULDADE/Git/MAIN/C/Teoria dos Grafos/2023/input_grafo.txt", "r");
-    int a, b;
-    int qtd_vertices=0;
-
-    int i;
-
-    for(i=0;i<10001;i++)
-    {
-        qtd_global[i] =0;
-    }
-
-    if (arq == NULL)
-    {
-        printf("\n Arquivo nao localizado");
-        return 0;
-    }
-
-    while (fscanf(arq, "%d;%d\n", &a, &b) != EOF)
-    {
-        printf("\n A: %d B: %d", a, b);
-        qtd_arestas++;
-
-        if (qtd_global[a]==0)
-            qtd_vertices++;
-            qtd_global[a] = 1;
-
-        if (qtd_global[b]==0)
-            qtd_vertices++;
-            qtd_global[b] = 1;
-
-        push(&vertices[a], b);
-        push(&vertices[b], a);
-    }
-
-    return qtd_vertices;
 }
 
 void push(vertice *v, int x)
 {
-    if (v->lista_adj == NULL)
+    if (v->lista_adj == NULL){
         v->lista_adj = aloca_lista();
-    incluir_ordenado_lista(v->lista_adj, x);
+    }
+    incluir_lista(v->lista_adj, x);
 }
 
 lista *aloca_lista()
@@ -173,16 +116,69 @@ registro *aloca_registro()
     return novo;
 }
 
-int incluir_ordenado_lista(lista *l, int x)
+///bipartido (dfs vai ser do tipo int para poder retornar 0 ou 1, poderia ser bool tbm, mas fodase)
+int dfs(vertice * vertices , int raiz, int cor)
 {
-    if (l == NULL)
+    registro * aux;
+    vertices[raiz].visitado=1;//marca como visitado
+    vertices[raiz].cor=cor;//a cor q eu muitipliquei por -1 na chamada da função vai ser a noca cor do vértice, tipo:
+    //ex: Vermelho: 1
+    //    Azul: -1
+
+    if (vertices[raiz].lista_adj==NULL){//lista vazia
         return 0;
+    } 
+    aux = vertices[raiz].lista_adj->inicio;//inicio da lista de adjacência do vértice sendo visitado
+
+    while(aux!=NULL)//percorrendo a lista de adjacência
+    {
+        if (vertices[aux->valor].visitado==0)//se o vértice ainda não foi visitado, vai pra lista de adjacência dele numa pilha de recursividade
+        {
+            dfs(vertices,aux->valor,cor*-1);//multiplicar por -1 para mudar a cor
+            //isso aqui vai criar uma pilha de recursividadde, e vai voltar a recursividade um por um
+
+        }else if(vertices[aux->valor].visitado==1 && vertices[aux->valor].cor==vertices[raiz].cor){//se o vértice já foi visitado e a cor dele é igual a cor do vértice pai, o grafo n é bipartido
+            //printf("Suspicious bugs found!");
+            return 1;
+        }
+        aux = aux->prox;//vai para o próximo vértice da lista de adjacência
+    }
+
+    return 0;
+}
+
+void liberarGrafo(vertice *vertices, int numVertices) {
+
+    for (int i = 1; i <= numVertices; i++) {//percorrer todos os vértices
+
+        lista *listaAdj = vertices[i].lista_adj;//pegar a lista de adjacência do vértice i
+        registro *atual = listaAdj->inicio;//pegar o primeiro registro dessa lista de adjacência
+
+        while (atual != NULL) {//percorrer tudo até achar um NULL
+
+            registro *proximo = atual->prox;//percorre
+            free(atual);//dar free em todos os registros da lista de adjacência do vértice i
+            atual = proximo;
+
+        }
+        free(listaAdj);//dar free na lista de adjacência desse vértice do for
+    }
+    free(vertices);//termina de liberar tudo
+}
+
+
+///s, essa função é tua, ainda tenho q estudar melhor ela kkkk
+int incluir_lista(lista *l, int x)
+{
+    if (l == NULL){//lista vazia
+        return 0;
+    }
 
     registro *novo, *aux = NULL, *ant = NULL;
-    novo = aloca_registro();
+    novo = aloca_registro();//calloc neles
     novo->valor = x;
 
-    if (l->inicio == NULL)
+    if (l->inicio == NULL)//se o inicio da lista estiver vazio, o novo registro vai ser o inicio
     {
         l->inicio = novo;
     }
@@ -192,7 +188,6 @@ int incluir_ordenado_lista(lista *l, int x)
         aux = l->inicio;
         while (aux != NULL && !inserido)
         {
-
             if (aux->valor == novo->valor)
             {
                 return 0;
@@ -201,17 +196,20 @@ int incluir_ordenado_lista(lista *l, int x)
             if (aux->valor < novo->valor)
             {
                 ant = aux;
-                aux = aux->prox;    
+                aux = aux->prox;
             }
             else
             {
-                if (ant == NULL)
+                if (ant == NULL){
                     l->inicio = novo;
-                else
+                }
+                    
+                else{
                     ant->prox = novo;
+                }
 
                 novo->prox = aux;
-                inserido = 1;
+                inserido = 1; 
             }
         }
         if (!inserido)
@@ -223,72 +221,4 @@ int incluir_ordenado_lista(lista *l, int x)
     l->qtd++;
     return 1;
 }
-
-void mostrar_lista_dos_vertices(vertice *v, int tam)
-{
-    int i;
-
-    for (i = 0; i < tam; i++)
-    {
-        if (v[i].lista_adj != NULL)
-        {
-            printf("\n Lista de Adjacencias do no : %d", i);
-            mostrar_lista(v[i].lista_adj);
-        }
-    }
-}
-
-void mostrar_lista(lista *l)
-{
-    registro *aux;
-
-    if (l == NULL)
-    {
-        printf("\n Lista nula");
-        return;
-    }
-
-    if (l->inicio == NULL)
-    {
-        printf("\n Lista vazia");
-        return;
-    }
-
-    aux = l->inicio;
-    while (aux != NULL)
-    {
-        printf("\n -> %d", aux->valor);
-        aux = aux->prox;
-    }
-}
-
-//
-
-
-
-
-//MEU dfs padrão
-void dfs(vertice * vertices , int x){
-
-    registro *aux;//ponteiro auxiliar para percorrer a lista de adjacencia do vertice x
-
-    vertices[x].visitado = 1;//visitou o vértice
-
-    printf("\nVisitando vertice %i ", x);
-
-    aux = vertices[x].lista_adj->inicio;//aux vira o inicio da lista de adjacencia do vertice x
-
-    if(aux == NULL){//se o inicio da fila for null, a lista está vazia
-        printf("\nLista esta vazia");
-    }
-
-    while (aux != NULL)//enquanto o valor da lista não for nulo, ou seja, enquanto tiver elementos na lista, vai continuar em loop
-    {
-        if (vertices[aux->valor].visitado == 0)//se o vértice não foi visitado, vai chamar a função dfs novamente, para visitar ele
-        {
-            dfs(vertices, aux->valor);//chamando função recursivamente
-        }
-        aux = aux->prox;//valor de aux recebe o próximo elemento da lista, avançando a lista de adjacencia daquele vértice em questão
-    }
-}
-
+ 
